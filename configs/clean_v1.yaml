@@ -1,0 +1,66 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# DECAFIA clean_v1 — YOLOv8m training configuration
+# Dataset  : dataset/decafia_clean/  (nc=3, roya/coco/minador, no sano class)
+# Hardware : NVIDIA RTX 5070 Laptop GPU (Blackwell, sm_120, 8 GB VRAM)
+# Requires : ultralytics>=8.3, PyTorch>=2.7 (sm_120 support), CUDA 12.8+
+#
+# DATASET: images are NOT tracked in this repository.
+# Download the dataset from Zenodo (concept DOI 10.5281/zenodo.19931903)
+# and extract it so that dataset/decafia_clean/ exists at the repo root
+# before running training.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Data ─────────────────────────────────────────────────────────────────────
+# Path is relative to the working directory (run from repo root).
+data: dataset/data.yaml
+
+# ── Model ────────────────────────────────────────────────────────────────────
+# Place the YOLOv8m base weights at models/checkpoints/yolov8m.pt,
+# or run: python -c "from ultralytics import YOLO; YOLO('yolov8m.pt')"
+model: models/checkpoints/yolov8m.pt
+
+# ── Run identity ─────────────────────────────────────────────────────────────
+project: runs
+name: decafia_clean_v1
+exist_ok: false
+seed: 42
+
+# ── Training schedule ────────────────────────────────────────────────────────
+epochs:        100
+patience:      20
+batch:         16
+imgsz:         640
+optimizer:     AdamW
+amp:           true
+workers:       0          # mandatory on Windows — avoids paging-file crash
+
+# ── Learning rate ────────────────────────────────────────────────────────────
+lr0:           0.01
+lrf:           0.001      # final lr = lr0 * lrf = 0.00001
+momentum:      0.937
+weight_decay:  0.0005
+warmup_epochs: 3
+warmup_momentum: 0.8
+warmup_bias_lr:  0.1
+
+# ── Augmentation ─────────────────────────────────────────────────────────────
+hsv_h:        0.015
+hsv_s:        0.7
+hsv_v:        0.4
+degrees:      15.0
+translate:    0.1
+scale:        0.5
+shear:        0.0
+perspective:  0.0
+flipud:       0.5
+fliplr:       0.5
+mosaic:       1.0
+mixup:        0.15
+copy_paste:   0.0
+close_mosaic: 10
+
+# ── Logging ──────────────────────────────────────────────────────────────────
+save:          true
+save_period:   -1         # save only best + last
+plots:         true
+verbose:       true

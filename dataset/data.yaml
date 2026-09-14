@@ -1,0 +1,13 @@
+# DECAFIA clean dataset - own_field + rust_and_leaf_miner only
+# Generated from decafia_yolo_original; rocole subset excluded.
+# seed=42, stratified 70/15/15 by class presence
+path: dataset/decafia_clean   # relative to the working directory (run from repo root)
+train: images/train
+val:   images/val
+test:  images/test
+
+nc: 3
+names:
+  0: roya
+  1: coco
+  2: minador

@@ -1,0 +1,27 @@
+# Dataset images — not tracked; download from Zenodo DOI 10.5281/zenodo.19931903
+dataset/*.jpg
+dataset/*.jpeg
+dataset/*.png
+dataset/images/
+
+# Model weights and exports
+*.pt
+*.onnx
+
+# Ultralytics cache files
+*.cache
+
+# Training run output (not committed; use results/ for paper figures)
+runs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
