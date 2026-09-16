@@ -1,4 +1,5 @@
-<!-- SUPERSEDED — see audits/near_duplicates/README.md -->
+> **⚠️ SUPERSEDED.** Some conclusions in this file are known to be wrong. See [README.md](README.md) for the list of errors and the authoritative results.
+
 # SESSION_FEASIBILITY Report
 
 Generated: 2026-09-15T20:01:46.370723
