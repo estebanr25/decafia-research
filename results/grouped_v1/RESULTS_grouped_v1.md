@@ -107,6 +107,10 @@ Grouped:  `decafia_grouped_v1`  — leakage-safe grouped split, test set 356 ima
    per-class differences between baseline and grouped are within the likely range of
    split-to-split variability and should not be interpreted as model-level differences.
 
+4. **Metric transcription:** Metric values in this file were transcribed from the Ultralytics
+   test evaluation output (runs/decafia_grouped_v1_test) by
+   scripts/one_shot/organize_grouped_v1.py; they were not re-parsed automatically.
+
 ---
 
 ## 6. Figures
