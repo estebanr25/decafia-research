@@ -103,13 +103,15 @@ Grouped:  `decafia_grouped_v1`  — leakage-safe grouped split, test set 356 ima
    or test, these crops represent a minor train-time advantage that cannot be quantified
    without re-running the SIFT crop-parent search with relaxed thresholds.
 
-3. **Single seed:** Only seed=42 was used for the randomized group assignment. The reported
-   per-class differences between baseline and grouped are within the likely range of
-   split-to-split variability and should not be interpreted as model-level differences.
+3. **Single split seed:** Only seed=42 was used for the randomized group assignment. Test sets
+   differ between splits and a single split seed was used; per-class differences (≤ 4.5 pp)
+   were not evaluated against split-to-split variability and should not be interpreted as
+   effects of leakage.
 
 4. **Metric transcription:** Metric values in this file were transcribed from the Ultralytics
-   test evaluation output (runs/decafia_grouped_v1_test) by
-   scripts/one_shot/organize_grouped_v1.py; they were not re-parsed automatically.
+   test evaluation output (runs/decafia_grouped_v1_test) and written by
+   scripts/one_shot/organize_grouped_v1.py; limitations 3 and 4 were edited manually
+   afterwards.
 
 ---
 
