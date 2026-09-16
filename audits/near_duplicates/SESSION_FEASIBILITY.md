@@ -1,3 +1,4 @@
+<!-- SUPERSEDED — see audits/near_duplicates/README.md -->
 # SESSION_FEASIBILITY Report
 
 Generated: 2026-09-15T20:01:46.370723

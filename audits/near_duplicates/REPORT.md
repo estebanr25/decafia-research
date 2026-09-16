@@ -1,3 +1,4 @@
+<!-- SUPERSEDED — see audits/near_duplicates/README.md -->
 # DECAFIA Near-Duplicate Audit Report
 **Dataset:** decafia_clean — 2315 images (train=1618, val=348, test=349)
 **Provenance manifest:** C:\Users\luise\OneDrive\Documentos\DECAFIA_v2\01_dataset\provenance_manifest.csv
