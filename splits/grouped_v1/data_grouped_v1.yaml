@@ -1,0 +1,13 @@
+# DECAFIA grouped split v1 - data configuration
+# TODO: set `path` to the absolute path of your decafia_clean dataset root on your machine.
+# TODO: update train/val/test to absolute paths of the split txt files (or paths relative to `path`).
+path: /path/to/decafia_clean   # <-- EDIT THIS (absolute path to dataset root)
+train: /path/to/splits/grouped_v1/train.txt  # <-- EDIT THIS
+val:   /path/to/splits/grouped_v1/val.txt    # <-- EDIT THIS
+test:  /path/to/splits/grouped_v1/test.txt   # <-- EDIT THIS
+
+nc: 3
+names:
+  0: roya
+  1: coco
+  2: minador
