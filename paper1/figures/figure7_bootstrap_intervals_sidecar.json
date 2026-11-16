@@ -1,0 +1,33 @@
+{
+  "figure": "figure7_bootstrap_intervals",
+  "plotted_values": {
+    "map50_per_class": {
+      "roya": 0.8391,
+      "coco": 0.9621,
+      "minador": 0.9832,
+      "all": 0.9281
+    },
+    "ci95_cluster": {
+      "roya": {
+        "lo": 0.7047315419560088,
+        "hi": 0.8795984866734996
+      },
+      "coco": {
+        "lo": 0.8011976064938466,
+        "hi": 0.9714576225388836
+      },
+      "minador": {
+        "lo": 0.9733921466961976,
+        "hi": 0.9997577519379846
+      },
+      "all": {
+        "lo": 0.8468527008759897,
+        "hi": 0.9430474087432043
+      }
+    }
+  },
+  "input_hashes": {
+    "metrics_final.json": "304ff8ad1e5f152a179bfe21acece2e422666c435c4107dd6f7418b651ea571f"
+  },
+  "generated": "2026-11-16"
+}

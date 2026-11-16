@@ -1,5 +1,5 @@
 # PROGRESS.md
-Updated: 2026-11-16 13:19:22
+Updated: 2026-11-16 16:17:01
 
 - Phase 1 — hash computation: done
 - Phase 1 — all-pairs distance: in_progress
@@ -14,3 +14,7 @@ Updated: 2026-11-16 13:19:22
 - Phase 3B - eval full v1 test: done
 - Phase 3B - eval filtered v1 test: done
 - Phase 3B - background FAR: done
+- Phase 4 - evidence package: COMPLETE
+- Phase 4 - inference: done
+- Phase 4 - bootstrap CIs: done
+- Phase 4 - figures: done

@@ -84,5 +84,423 @@
         }
       ]
     }
+  },
+  "phase4": {
+    "model": {
+      "name": "decafia_grouped_v1",
+      "sha256": "d8bf05c31ec37923ceb9a3224441301ba9d8442e42783841cfe4cfa120549d1a",
+      "note": "Path B official model; evaluated on its own v1 test split"
+    },
+    "evaluation_note": "Path B: v1 model on v1 test set. See full/filtered comparison in phase3b section.",
+    "test_set_full": {
+      "n_images": 356,
+      "n_backgrounds": 158,
+      "map50_overall": 0.928148137682382,
+      "map50_95_overall": 0.7228289269928089,
+      "map50_per_class": {
+        "roya": 0.839143,
+        "coco": 0.962144,
+        "minador": 0.983157
+      },
+      "map50_95_per_class": {
+        "roya": 0.515676,
+        "coco": 0.787722,
+        "minador": 0.865089
+      },
+      "recomputed_matches_model_val": true,
+      "recomputed_reference": 0.929781,
+      "prf1_at_conf050": {
+        "roya": {
+          "P": 0.8501,
+          "R": 0.6945,
+          "F1": 0.7645,
+          "TP": 573,
+          "FP": 101,
+          "FN": 252
+        },
+        "coco": {
+          "P": 0.9187,
+          "R": 0.8963,
+          "F1": 0.9074,
+          "TP": 735,
+          "FP": 65,
+          "FN": 85
+        },
+        "minador": {
+          "P": 0.9471,
+          "R": 0.9547,
+          "F1": 0.9509,
+          "TP": 358,
+          "FP": 20,
+          "FN": 17
+        },
+        "all": {
+          "P": 0.8996,
+          "R": 0.8248,
+          "F1": 0.8605
+        }
+      },
+      "conf050_note": "P/R/F1 at confidence threshold 0.50",
+      "background_far_at_conf050": {
+        "n_background": 158,
+        "n_with_detection": 3,
+        "rate": 0.018987
+      },
+      "recall_by_box_size_at_conf050": {
+        "roya": {
+          "small": {
+            "recall": 0.967,
+            "tp": 440,
+            "fn": 15
+          },
+          "medium": {
+            "recall": 0.9614,
+            "tp": 249,
+            "fn": 10
+          },
+          "large": {
+            "recall": 0.982,
+            "tp": 109,
+            "fn": 2
+          }
+        },
+        "coco": {
+          "small": {
+            "recall": 0.9943,
+            "tp": 175,
+            "fn": 1
+          },
+          "medium": {
+            "recall": 0.9966,
+            "tp": 593,
+            "fn": 2
+          },
+          "large": {
+            "recall": 1.0,
+            "tp": 49,
+            "fn": 0
+          }
+        },
+        "minador": {
+          "small": {
+            "recall": 1.0,
+            "tp": 17,
+            "fn": 0
+          },
+          "medium": {
+            "recall": 1.0,
+            "tp": 155,
+            "fn": 0
+          },
+          "large": {
+            "recall": 1.0,
+            "tp": 203,
+            "fn": 0
+          }
+        }
+      },
+      "box_size_thresholds_px2": {
+        "small": "<1024 (32x32)",
+        "medium": "<9216 (96x96)",
+        "large": ">=9216"
+      },
+      "confusion_matrix_pred_true": [
+        [
+          573,
+          0,
+          0,
+          101
+        ],
+        [
+          0,
+          735,
+          0,
+          65
+        ],
+        [
+          0,
+          0,
+          358,
+          20
+        ],
+        [
+          252,
+          85,
+          17,
+          0
+        ]
+      ],
+      "cm_orientation": "cm[predicted, true]; last row/col = background",
+      "cm_column_sums_match_gt": true,
+      "gt_counts_per_class": {
+        "roya": 825,
+        "coco": 820,
+        "minador": 375
+      },
+      "bootstrap_map50_ci95": {
+        "method": "cluster bootstrap over leaf groups (primary), image-level (secondary), B=2000, seed=42",
+        "note": "Reflects test-set sampling variability only (single seed)",
+        "cluster": {
+          "overall": {
+            "lo": 0.8468527008759897,
+            "hi": 0.9430474087432043
+          },
+          "roya": {
+            "lo": 0.7047315419560088,
+            "hi": 0.8795984866734996
+          },
+          "coco": {
+            "lo": 0.8011976064938466,
+            "hi": 0.9714576225388836
+          },
+          "minador": {
+            "lo": 0.9733921466961976,
+            "hi": 0.9997577519379846
+          }
+        },
+        "image_level": {
+          "overall": {
+            "lo": 0.9147087934747742,
+            "hi": 0.9403964187737788
+          },
+          "roya": {
+            "lo": 0.8013227970666799,
+            "hi": 0.8723720397427769
+          },
+          "coco": {
+            "lo": 0.9504502918984497,
+            "hi": 0.9739085098064351
+          },
+          "minador": {
+            "lo": 0.9731890903754045,
+            "hi": 0.9916631347591615
+          }
+        }
+      },
+      "roya_by_source": {
+        "own_field": {
+          "tp": 441,
+          "fp": 66,
+          "fn": 197,
+          "n_imgs": 269,
+          "n_instances": 638,
+          "P": 0.8698,
+          "R": 0.6912
+        },
+        "rust_and_leaf_miner": {
+          "tp": 132,
+          "fp": 35,
+          "fn": 55,
+          "n_imgs": 87,
+          "n_instances": 187,
+          "P": 0.7904,
+          "R": 0.7059
+        }
+      },
+      "error_gallery": {
+        "fp_on_background": [
+          {
+            "stem": "SANAS_SOCORRO_398",
+            "conf": 0.6774656772613525,
+            "cls": 1,
+            "box": [
+              44.98881149291992,
+              13.03341293334961,
+              69.03577423095703,
+              40.12807846069336
+            ],
+            "area_px2": 651.5,
+            "dist_to_edge_px": 13.0,
+            "laplacian_variance": 899.48
+          },
+          {
+            "stem": "SANAS_NUEVAS_57",
+            "conf": 0.62174391746521,
+            "cls": 0,
+            "box": [
+              409.70208740234375,
+              0.03331303596496582,
+              461.79107666015625,
+              40.69613265991211
+            ],
+            "area_px2": 2118.1,
+            "dist_to_edge_px": 0.0,
+            "laplacian_variance": 69.9
+          },
+          {
+            "stem": "SANAS_NUEVAS_396",
+            "conf": 0.608562707901001,
+            "cls": 2,
+            "box": [
+              578.525390625,
+              809.6708374023438,
+              614.0081176757812,
+              846.3526611328125
+            ],
+            "area_px2": 1301.6,
+            "dist_to_edge_px": 113.6,
+            "laplacian_variance": 116.74
+          }
+        ],
+        "missed_roya": [
+          {
+            "stem": "SANAS_NUEVAS_53",
+            "gt_cls": 0,
+            "gt_box": [
+              78.99983999999999,
+              49.000223999999996,
+              89.00016,
+              71.00016
+            ],
+            "area_px2": 220.0,
+            "dist_to_edge_px": 49.0,
+            "laplacian_variance": 605.8
+          },
+          {
+            "stem": "SANAS_NUEVAS_51",
+            "gt_cls": 0,
+            "gt_box": [
+              211.99968,
+              611.999872,
+              230.99999999999997,
+              624.999936
+            ],
+            "area_px2": 247.0,
+            "dist_to_edge_px": 79.0,
+            "laplacian_variance": 27.08
+          },
+          {
+            "stem": "SANAS_NUEVAS_53",
+            "gt_cls": 0,
+            "gt_box": [
+              71.00016000000001,
+              340.00019199999997,
+              87.00048,
+              357.0
+            ],
+            "area_px2": 272.0,
+            "dist_to_edge_px": 71.0,
+            "laplacian_variance": 45.81
+          },
+          {
+            "stem": "SANAS_NUEVAS_53",
+            "gt_cls": 0,
+            "gt_box": [
+              89.00064,
+              295.999872,
+              112.00032,
+              309.999872
+            ],
+            "area_px2": 322.0,
+            "dist_to_edge_px": 89.0,
+            "laplacian_variance": 64.85
+          },
+          {
+            "stem": "COCO_M_A_28",
+            "gt_cls": 0,
+            "gt_box": [
+              441.00019199999997,
+              405.99984,
+              460.0,
+              426.99984
+            ],
+            "area_px2": 399.0,
+            "dist_to_edge_px": 52.0,
+            "laplacian_variance": 130.39
+          },
+          {
+            "stem": "COCO_M_A_5",
+            "gt_cls": 0,
+            "gt_box": [
+              8.0,
+              95.00016000000001,
+              29.000192,
+              117.00048
+            ],
+            "area_px2": 462.0,
+            "dist_to_edge_px": 8.0,
+            "laplacian_variance": 240.06
+          },
+          {
+            "stem": "COCO_M_A_24",
+            "gt_cls": 0,
+            "gt_box": [
+              581.9996160000001,
+              284.99952,
+              603.999744,
+              306.99984
+            ],
+            "area_px2": 484.0,
+            "dist_to_edge_px": 164.0,
+            "laplacian_variance": 31.33
+          },
+          {
+            "stem": "COCO_M_A_28",
+            "gt_cls": 0,
+            "gt_box": [
+              462.999808,
+              624.99984,
+              484.999936,
+              647.00016
+            ],
+            "area_px2": 484.0,
+            "dist_to_edge_px": 27.0,
+            "laplacian_variance": 52.34
+          },
+          {
+            "stem": "COCO_M_A_97",
+            "gt_cls": 0,
+            "gt_box": [
+              631.99968,
+              60.00025600000001,
+              657.0,
+              80.0
+            ],
+            "area_px2": 500.0,
+            "dist_to_edge_px": 60.0,
+            "laplacian_variance": 112.29
+          },
+          {
+            "stem": "COCO_M_A_28",
+            "gt_cls": 0,
+            "gt_box": [
+              220.0,
+              619.9996800000001,
+              242.00012800000002,
+              645.0
+            ],
+            "area_px2": 550.0,
+            "dist_to_edge_px": 220.0,
+            "laplacian_variance": 140.33
+          },
+          {
+            "stem": "COCO_M_A_97",
+            "gt_cls": 0,
+            "gt_box": [
+              611.00016,
+              53.999872,
+              639.0004799999999,
+              76.0
+            ],
+            "area_px2": 616.0,
+            "dist_to_edge_px": 54.0,
+            "laplacian_variance": 48.18
+          },
+          {
+            "stem": "COCO_M_A_86",
+            "gt_cls": 0,
+            "gt_box": [
+              492.00048000000004,
+              291.999904,
+              519.0004799999999,
+              315.99971200000005
+            ],
+            "area_px2": 648.0,
+            "dist_to_edge_px": 132.0,
+            "laplacian_variance": 130.08
+          }
+        ]
+      }
+    }
   }
 }

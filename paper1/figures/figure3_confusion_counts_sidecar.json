@@ -1,0 +1,36 @@
+{
+  "figure": "figure3_confusion_counts",
+  "plotted_values": {
+    "cm": [
+      [
+        573,
+        0,
+        0,
+        101
+      ],
+      [
+        0,
+        735,
+        0,
+        65
+      ],
+      [
+        0,
+        0,
+        358,
+        20
+      ],
+      [
+        252,
+        85,
+        17,
+        0
+      ]
+    ],
+    "orientation": "cm[pred,true]"
+  },
+  "input_hashes": {
+    "metrics_final.json": "304ff8ad1e5f152a179bfe21acece2e422666c435c4107dd6f7418b651ea571f"
+  },
+  "generated": "2026-11-16"
+}
