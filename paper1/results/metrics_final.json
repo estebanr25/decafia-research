@@ -1,0 +1,88 @@
+{
+  "note": "Path B: sensitivity measurement only. The two test sets differ; this is not a corrected metric.",
+  "path_b_reason": [
+    "cond2_max_component_lt_10pct",
+    "cond3_all_classes_ge_100_test"
+  ],
+  "model": {
+    "name": "decafia_grouped_v1",
+    "weights": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\02_training\\runs\\decafia_grouped_v1\\weights\\best.pt",
+    "sha256": "d8bf05c31ec37923ceb9a3224441301ba9d8442e42783841cfe4cfa120549d1a"
+  },
+  "exclusion_list": {
+    "n_excluded": 49,
+    "excluded_by_train": 40,
+    "excluded_by_val_only": 9,
+    "file": "split_v2/v1_test_exclusion_list.csv"
+  },
+  "full_test": {
+    "n_images": 356,
+    "label": "v1_full_test",
+    "map50_overall": 0.929781,
+    "map50_95_overall": 0.731766,
+    "map50_per_class": {
+      "roya": 0.841362,
+      "coco": 0.963009,
+      "minador": 0.984972
+    },
+    "map50_95_per_class": {
+      "roya": 0.532908,
+      "coco": 0.792951,
+      "minador": 0.869439
+    },
+    "background_far_at_conf050": {
+      "n_background": 158,
+      "n_with_detection": 4,
+      "rate": 0.025316,
+      "examples": [
+        {
+          "path": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\01_dataset\\decafia_clean\\images\\train\\SANAS_NUEVAS_396.jpg",
+          "n_dets": 1
+        },
+        {
+          "path": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\01_dataset\\decafia_clean\\images\\train\\SANAS_NUEVAS_57.jpg",
+          "n_dets": 1
+        },
+        {
+          "path": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\01_dataset\\decafia_clean\\images\\train\\SANAS_SOCORRO_112.jpg",
+          "n_dets": 1
+        }
+      ]
+    }
+  },
+  "filtered_test": {
+    "n_images": 307,
+    "label": "v1_filtered_test",
+    "map50_overall": 0.926117,
+    "map50_95_overall": 0.72692,
+    "map50_per_class": {
+      "roya": 0.836163,
+      "coco": 0.962087,
+      "minador": 0.980101
+    },
+    "map50_95_per_class": {
+      "roya": 0.53114,
+      "coco": 0.793052,
+      "minador": 0.856566
+    },
+    "background_far_at_conf050": {
+      "n_background": 126,
+      "n_with_detection": 3,
+      "rate": 0.02381,
+      "examples": [
+        {
+          "path": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\01_dataset\\decafia_clean\\images\\train\\SANAS_NUEVAS_57.jpg",
+          "n_dets": 1
+        },
+        {
+          "path": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\01_dataset\\decafia_clean\\images\\train\\SANAS_SOCORRO_112.jpg",
+          "n_dets": 1
+        },
+        {
+          "path": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\01_dataset\\decafia_clean\\images\\train\\SANAS_SOCORRO_398.jpg",
+          "n_dets": 1
+        }
+      ]
+    }
+  }
+}

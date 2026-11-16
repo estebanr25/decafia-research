@@ -1,0 +1,13 @@
+# DECAFIA v1 filtered test evaluation yaml (Path B)
+# WARNING: This is for sensitivity measurement only. The two test sets differ.
+# Full test: 356 images; Filtered: 307 images
+# Excluded: 49 images with merged-tier copies in train (40) or val-only (9)
+path: C:\Users\luise\OneDrive\Documentos\DECAFIA_v2\01_dataset\decafia_clean
+train: C:\Users\luise\OneDrive\Documentos\DECAFIA_v2\01_dataset\decafia_clean\split_grouped_v1\test.txt
+val:   C:\Users\luise\OneDrive\Documentos\DECAFIA_v2\01_dataset\decafia_clean\split_grouped_v1\test.txt
+test:  C:\Users\luise\temp\decafia-research\split_v2\v1_test_filtered.txt
+nc: 3
+names:
+  0: roya
+  1: coco
+  2: minador
