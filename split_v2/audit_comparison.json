@@ -1,0 +1,9 @@
+{
+  "our_cross_split_d_le_4": 60,
+  "nov_cross_split_d_le_4": 60,
+  "overlap_our_and_nov": 57,
+  "only_in_our": 3,
+  "only_in_nov": 3,
+  "sept_sift_verified_cross_split": 120,
+  "overlap_sept_and_our_tiers_AB": 120
+}
