@@ -18,3 +18,6 @@ Updated: 2026-11-16 16:17:01
 - Phase 4 - inference: done
 - Phase 4 - bootstrap CIs: done
 - Phase 4 - figures: done
+
+- Phase 6 - source of truth update: COMPLETE
+- Phase 6 - CLAUDE.md updated: 2026-11-16
