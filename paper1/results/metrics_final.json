@@ -293,7 +293,9 @@
           "minador": {
             "lo": 0.9731,
             "hi": 0.9998,
-            "zero_pct": 1.4
+            "zero_pct": 1.4,
+            "reported": false,
+            "reported_reason": "Minador test images share group membership with training images through SIFT+geometric-verified transformed copies (MINEIRO_99 component, 272 images). mAP50=0.985 cannot be interpreted as performance on independent held-out leaves. CI retained in JSON for completeness but must not be reported in the manuscript."
           }
         },
         "per_class_image_level": {
@@ -310,7 +312,8 @@
             "hi": 0.9912
           }
         },
-        "image_level_note": "Image-level bootstrap ignores within-leaf correlation; shown as secondary only"
+        "image_level_note": "Image-level bootstrap ignores within-leaf correlation; shown as secondary only",
+        "cluster_method_note": "Clusters are v1 groups (group_root from split_grouped_v1 assignments.csv), not verified components. The cluster bootstrap validity check uses these groups: roya has 10 groups, coco 6 groups, minador 4 groups as clusters."
       },
       "roya_by_source": {
         "own_field": {

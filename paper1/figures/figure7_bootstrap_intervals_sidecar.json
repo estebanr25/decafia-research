@@ -2,32 +2,27 @@
   "figure": "figure7_bootstrap_intervals",
   "plotted_values": {
     "map50_per_class": {
-      "roya": 0.8391,
-      "coco": 0.9621,
-      "minador": 0.9832,
-      "all": 0.9281
+      "roya": 0.8413,
+      "coco": 0.9618,
+      "minador": 0.985
     },
-    "ci95_cluster": {
-      "roya": {
-        "lo": 0.7047315419560088,
-        "hi": 0.8795984866734996
-      },
-      "coco": {
-        "lo": 0.8011976064938466,
-        "hi": 0.9714576225388836
-      },
-      "minador": {
-        "lo": 0.9733921466961976,
-        "hi": 0.9997577519379846
-      },
-      "all": {
-        "lo": 0.8468527008759897,
-        "hi": 0.9430474087432043
-      }
-    }
+    "ci95_coco_cluster": {
+      "lo": 0.8012,
+      "hi": 0.9713
+    },
+    "ci95_roya_image_level_secondary": {
+      "lo": 0.8033,
+      "hi": 0.8735
+    },
+    "ci95_minador": "NOT REPORTED (contaminated)"
+  },
+  "notes": {
+    "roya": "Cluster CI unreportable (53.1% in one cluster). Image-level CI shown as secondary.",
+    "coco": "Cluster CI reported (37.2% max cluster).",
+    "minador": "No CI shown. Test images contaminated; independent evaluation not possible."
   },
   "input_hashes": {
-    "metrics_final.json": "304ff8ad1e5f152a179bfe21acece2e422666c435c4107dd6f7418b651ea571f"
+    "metrics_final.json": "9cc2a603f590cacec461deffc2aa2d007fe3cd210399e38815502b75c3b6af11"
   },
-  "generated": "2026-11-16"
+  "generated": "2026-11-18"
 }

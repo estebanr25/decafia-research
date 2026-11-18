@@ -1,6 +1,6 @@
 # NUMBERS_FOR_MANUSCRIPT.md
 
-All claims rendered from paper1/results/metrics_final.json (SHA-256 at time of writing: bc4fbb2b09d6...)
+All claims rendered from paper1/results/metrics_final.json (SHA-256 prefix: bc4fbb2b09d6)
 
 Path B: decafia_grouped_v1 evaluated on split_grouped_v1 test set.
 NMS IoU setting: iou=0.7 (September documented setting).
@@ -15,25 +15,51 @@ NMS IoU setting: iou=0.7 (September documented setting).
 | Background FA rate | phase4.test_set_full.background_far_at_conf050.rate | 0.018987 |
 | Bootstrap CI coco (cluster) lo | phase4.test_set_full.bootstrap_map50_ci95.per_class_cluster.coco.lo | 0.8012 |
 | Bootstrap CI coco (cluster) hi | phase4.test_set_full.bootstrap_map50_ci95.per_class_cluster.coco.hi | 0.9713 |
-| Bootstrap CI minador (cluster) lo | phase4.test_set_full.bootstrap_map50_ci95.per_class_cluster.minador.lo | 0.9731 |
-| Bootstrap CI minador (cluster) hi | phase4.test_set_full.bootstrap_map50_ci95.per_class_cluster.minador.hi | 0.9998 |
-| Overall cluster CI | — | NOT REPORTED (roya single cluster 53.1% > 50%) |
-| Filtered test mAP50 | filtered_test.map50_overall | 0.925574 |
-| Filtered test mAP50-95 | filtered_test.map50_95_overall | 0.729163 |
+| Bootstrap CI roya (image-level, secondary) lo | phase4.test_set_full.bootstrap_map50_ci95.per_class_image_level.roya.lo | 0.8033 |
+| Bootstrap CI roya (image-level, secondary) hi | phase4.test_set_full.bootstrap_map50_ci95.per_class_image_level.roya.hi | 0.8735 |
+| Overall cluster CI | — | NOT REPORTED (roya: 53.1% single cluster; minador: contaminated) |
+| Filtered test mAP50 | filtered_test.map50_overall (or phase_fix_log) | 0.925574 |
+| Filtered test mAP50-95 | (phase_fix_log) | 0.729163 |
 | Contaminated test images excluded | exclusion_list.n_excluded | 49 |
 
 ## Notes on CIs
 
-The cluster bootstrap cannot estimate the roya interval because one cluster
-(ROYA_RECORTES_107) holds 438/825 = 53.1% of test-set roya instances, exceeding the 50%
-reportability threshold. The overall mAP50 CI is therefore also not reported.
+The cluster bootstrap uses v1 groups (group_root from assignments.csv) as clusters.
 
-Per-class cluster CIs are reported for coco and minador only.
-Image-level bootstrap CIs are shown as secondary for all classes (ignores within-leaf correlation).
+**roya:** 10 clusters, largest (ROYA_RECORTES_107) holds 438/825 = 53.1% of roya test instances.
+Cluster CI cannot be estimated. Report image-level CI as secondary only, labeled "ignores within-leaf correlation".
 
-## NMS iou discrepancy (now resolved)
+**coco:** 6 clusters, largest holds 37.2%. Cluster CI: [0.801, 0.971] — REPORTABLE.
 
-The previous session reported mAP50-95=0.722829 / 0.726920. This was computed with iou=0.6
-instead of the documented September setting iou=0.7. With iou=0.7: mAP50-95=0.734368 (full)
-/ 0.729163 (filtered). The mAP50 gap is negligible (0.929377 vs 0.929781; within noise).
+**minador:** 4 clusters, largest holds 43.7%. Cluster CI: NOT REPORTED IN MANUSCRIPT.
+Reason: minador test images share group membership with training images through verified
+transformed copies. CI is not meaningful as performance on independent held-out leaves.
+(Retained in JSON with reported:false.)
+
+**Overall CI:** NOT REPORTED (both roya cluster bootstrap invalid AND minador contaminated).
+
+## Roya source analysis (Phase 1.3 check)
+
+The ROYA_RECORTES_107 cluster (the large roya cluster causing the CI issue) does NOT
+overlap the MINEIRO_99 verified component. The only edge between a MINEIRO_99 node and a
+ROYA_* image (MINADOR_50 — ROYA_FONDO_35) fails SIFT verification (4 inliers, 0.23 hull
+coverage — both below threshold). Therefore, roya test images in ROYA_RECORTES_107 are
+NOT linked to training images through verified copies. The roya cluster CI is unreportable
+solely because of cluster size, not data contamination.
+
+## NMS iou note
+
+Previous session used iou=0.6 → mAP50-95=0.722829. Official setting iou=0.7 → 0.734368.
 See section2_resolution in metrics_final.json.
+
+## Component size note (Phase 1.4)
+
+The MINEIRO_99 component:
+- 290 images: original v1 group size (MINEIRO_99 group before SESSION_SPLIT_V2)
+- 339 images: after SESSION_SPLIT_V2 pHash merges (incorporated adjacent groups)
+- 272 images: after SESSION_FIX_V2 SIFT+mask edge re-verification (4 false pHash edges removed)
+
+The manuscript uses **272** as the verified component size.
+Brief explanation for methods: "The largest verified component (272 images) comprises
+laboratory leaf images from the external dataset with pHash-verified geometric copies
+in the training split."
