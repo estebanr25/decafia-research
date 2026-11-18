@@ -1,0 +1,149 @@
+
+DECAFIA: A Multi-Source Field-Collected Dataset for Coffee Leaf
+Disease Detection Under Colombian Andean Conditions
+Luis Esteban Rosas Ruiz¹  ·  Andrey Fernando Salom Medina¹
+Director: Jaime Guillermo Barrero Perez¹
+¹ Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones
+Universidad Industrial de Santander, Bucaramanga, Colombia
+Dataset DOI: https://doi.org/10.5281/zenodo.19931903
+
+Abstract
+Coffee cultivation supports approximately 550,000 farming families in Colombia, yet accurate detection of leaf diseases remains constrained by the absence of field-collected, annotated datasets representative of Colombian Andean agronomic conditions. We present DECAFIA, a multi-source dataset of 2,786 annotated coffee leaf images comprising 15,181 annotated instances across four classes: roya (Hemileia vastatrix, 5,031 instances), coco (Curculionidae weevil defoliation, 5,394 instances), minador (Leucoptera coffeella, 2,385 instances), and hojas (whole-leaf geometric reference, 2,371 instances). The dataset integrates original field images captured at a Coffea arabica plantation in El Socorro, Santander, Colombia (6°28′N, 73°19′W; ~1,500 m a.s.l.) with re-annotated images from two publicly available sources (RoCoLe, Ecuador; Silva et al., 2020, Brazil), to improve model robustness against geographic domain shift. All images were annotated uniformly using VGG Image Annotator v2.0 with Segment Anything Model (SAM)-assisted polygon masks. Inter-annotator agreement reached Cohen’s κ = 0.91. A YOLOv8m baseline achieves mAP50 = 92.4% and mAP50-95 = 76.6% on the held-out test set. The dataset is publicly available at Zenodo (DOI: 10.5281/zenodo.19931903) under CC BY 4.0.
+
+Keywords: coffee leaf disease; object detection; YOLOv8; Colombia; Santander; Hemileia vastatrix; Leucoptera coffeella; benchmark dataset; transfer learning; domain shift
+
+1. Introduction
+Coffee (Coffea arabica and Coffea canephora) is one of the most economically significant agricultural commodities globally, generating income for approximately 550,000 farming families across more than 930,000 hectares in Colombia [1]. The department of Santander hosts over 30,000 coffee-producing farms at Andean altitudes of 1,200–2,000 m a.s.l. Despite sustained progress in breeding disease-resistant varieties, fungal pathogens and insect pests remain persistent threats. Coffee rust (Hemileia vastatrix) can reduce harvest efficiency by up to 30% in a single season if undetected [2]. Weevil defoliation (Coleoptera: Curculionidae, locally ‘Coco’) and the leaf miner Leucoptera coffeella cause mechanical foliage damage, weakening plants and increasing susceptibility to secondary infections.
+
+Deep learning-based object detection has demonstrated potential for automated phytopathological diagnosis [4], yet model performance depends critically on the geographic and agronomic match between training data and deployment conditions. A critical limitation of all prior coffee disease detection studies is reliance on datasets from regions outside Colombia — including Indonesia [5], Ecuador [16], and Brazil [17] — where differences in cultivar morphology, altitude, lighting conditions, and disease presentation patterns limit the direct applicability of trained models to Colombian Arabica production. DECAFIA addresses this gap by providing the first publicly available annotated dataset that incorporates images captured under Colombian Andean field conditions, complemented by re-annotated images from existing public sources to improve robustness against inter-source domain shift.
+
+The primary contributions of this work are: (1) a dataset of 2,786 annotated coffee leaf images with 15,181 instances across four classes, incorporating Colombian field conditions not represented in any prior public resource; (2) a rigorous SAM-assisted annotation protocol with Cohen’s κ = 0.91; (3) a YOLOv8m baseline achieving mAP50 = 92.4%; and (4) public release under CC BY 4.0 at Zenodo (DOI: 10.5281/zenodo.19931903).
+
+2. Related Work
+2.1. Deep Learning for Plant Disease Detection
+CNNs have been extensively applied to plant disease detection since Mohanty et al. [6] demonstrated high accuracy on the PlantVillage dataset. Review studies confirm EfficientNet, ResNet, and VGG for classification, while YOLO-family detectors dominate spatial localisation tasks [4]. A recurring finding is that performance degrades substantially when models trained on controlled laboratory images are evaluated on field-collected data [18], confirming that dataset geographic representativeness is the principal bottleneck for deployment.
+2.2. Existing Coffee Leaf Disease Datasets
+Table 1 summarises existing publicly available datasets. RoCoLe [16] provides 1,560 Robusta coffee leaf images from Ecuador with rust severity annotations. Silva et al. [17] provide 542 Brazilian Arabica images of rust and leaf miner under controlled laboratory conditions. Araaf et al. [5] report mAP50 = 73.2% for single-class rust detection on an Indonesian dataset. No prior dataset includes the Coco weevil defoliation class or Colombian Andean field conditions. DECAFIA fills this gap.
+
+Table 1. Comparison of publicly available coffee leaf disease datasets.
+
+† Integrates original Colombian field images with re-annotated images from RoCoLe [16] and Silva et al. [17] under CC BY 4.0 terms.
+
+3. Dataset Description
+3.1. Image Sources and Collection
+The DECAFIA dataset integrates images from three sources, unified under a single annotation protocol:
+
+Source 1 — Original field collection (El Socorro, Colombia). The primary corpus was captured at a Coffea arabica plantation in El Socorro, Santander, Colombia (6°28′N, 73°19′W; ~1,500 m a.s.l.) during 2022–2023 using multiple consumer Android smartphones under uncontrolled natural field lighting — overcast sky, direct sunlight, and partial canopy shade — without any imaging apparatus or controlled background. This strategy maximises ecological validity and ensures the dataset reflects real-world acquisition conditions. This source contributes all annotated disease instances (COCO_*, ROYA_* prefixes) and Colombian healthy leaf images (SANAS_SOCORRO_*, SANAS_NUEVAS_* prefixes).
+
+Source 2 — RoCoLe healthy leaf images (Ecuador, re-annotated). Healthy leaf images from RoCoLe [16] (CC BY 4.0; DOI: 10.17632/c5yvn32dzg) were incorporated to augment healthy class representation (SANAS_ROCOLE_* prefix). All images were independently re-annotated by the DECAFIA team; original RoCoLe disease labels were not used.
+
+Source 3 — Silva et al. 2020 leaf miner images (Brazil, re-annotated). Leaf miner images from Silva et al. [17] (CC BY 4.0; DOI: 10.17632/vfxf4trtcg.5) were incorporated to enrich the minador class (MINEIRO_* prefix). These images were acquired under laboratory conditions with white background at 4000×2250 px. The controlled acquisition context of Source 3 represents a distribution shift relative to Colombian field images, which is acknowledged as a dataset heterogeneity factor (Section 5.3).
+
+Reflection images (anti-false-positive design). 141 images of sunlight reflections on healthy leaf surfaces (REFLEJO_* prefix) were deliberately included in the dataset. Early rust lesions visually overlap with light reflections on the adaxial leaf surface, representing the primary false-positive risk for the roya class. Including these negative examples during training is an intentional data engineering decision to improve model specificity for rust detection. Their effect is evidenced in the confusion matrix analysis (Section 4.5).
+
+3.2. Dataset Composition and Split
+Of 2,803 raw images evaluated, 17 were excluded due to unresolvable annotation ambiguity (COCO_TEMP and ROYA_TEMP files), yielding 2,786 images. The split was fixed preserving acquisition sequence to prevent temporal leakage: train 1,934 (69.4%), val 549 (19.7%), test 286 (10.3%).
+
+Table 2. DECAFIA dataset composition by class.
+
+Figure 1 shows the training split label statistics. The bounding-box centroid heatmap confirms uniform spatial distribution with no annotation bias. The anchor-box size distribution shows lesion boxes cluster in the small-to-medium range (normalised width/height predominantly below 0.15), consistent with individual lesion-level detection.
+
+
+Figure 1. Training split label statistics. Instance counts per class (top-left); bounding-box centroid heatmap (bottom-left); anchor-box size cluster (top-right); bounding-box dimension distribution (bottom-right).
+3.3. Annotation Protocol
+All images were annotated using VGG Image Annotator (VIA) v2.0 [8] with polygon regions generated by Segment Anything Model (SAM) [9] in interactive point-prompt mode. Two annotators independently assigned class labels; a third adjudicator resolved disagreements. Bounding boxes for YOLO training were derived from polygon bounding rectangles. SAM polygon masks are retained and available from the corresponding author for instance segmentation research.
+
+Table 3. Class definitions and visual characteristics.
+
+Inter-annotator agreement was measured using Cohen’s kappa [19] on a random sample of 200 images (7.2% of the dataset), yielding κ = 0.91 (near-perfect agreement on the Landis and Koch scale [15]).
+
+Note on Coco class taxonomy: The label ‘Coco’ classifies a specific type of mechanical foliar damage — irregular through-perforations with brown necrotic margins — characteristic of adult weevil feeding documented in Santander coffee cultivation by Cenicafé [14]. The damage morphology is visually distinct and agronomically well-documented. Formal entomological specimen collection for species-level confirmation was not conducted in this study; the Curculionidae (Compsus sp./Epicaerus sp.) assignment reflects field morphological consistency with Cenicafé reference materials. This class should not be confused with Coccinellidae (beneficial ladybird beetles).
+
+4. Technical Validation — Baseline Benchmark
+4.1. Model Architecture and Training
+A YOLOv8m model [10] initialised with MS COCO pre-trained weights [11] was trained as the baseline benchmark. YOLOv8m was selected as a commonly used mid-scale architecture in agricultural detection literature, providing a reproducible reference for future comparative studies. Training configuration is shown in Table 4.
+
+Table 4. Baseline training configuration.
+
+4.2. Overall Detection Performance
+Table 5 presents test-set performance. DECAFIA achieves mAP50 = 92.4% and mAP50-95 = 76.6% across three disease classes simultaneously. For literature context, Araaf et al. [5] reported mAP50 = 73.2% using the same YOLOv8m architecture for single-class rust detection on an Indonesian dataset. These figures are presented to situate the DECAFIA baseline within the existing literature; given the different datasets, class counts, and annotation protocols, no claim of absolute superiority is made. The DECAFIA baseline is competitive with published agricultural detection benchmarks [4].
+
+Table 5. Baseline test-set performance and literature context.
+
+† Evaluated on a different dataset — cross-dataset comparison is not directly applicable; shown for literature context. ‡ Classification accuracy, not detection mAP.
+
+4.3. Per-Class Performance
+Table 6 presents per-class AP50. Minador achieves the highest AP50 (94.9%), consistent with the visually distinctive serpentine mine pattern. Coco achieves 94.1%; through-perforations are visually distinct from fungal lesions. Roya achieves 88.2% — the lowest of the three classes — because rust lesions span a broad visual spectrum from early-stage yellow speckling to advanced orange sporulation, creating ambiguity with chlorotic areas and sunlight reflections.
+
+Table 6. Per-class AP50 on the 286-image test set (2,581 disease instances).
+
+4.4. Confusion Matrix Analysis
+The normalised confusion matrix (Figure 2) shows the primary error mode is missed detections classified as background rather than inter-class confusion. Roya true positive rate is 0.88; the 0.12 background confusion reflects visual overlap between early rust pustules and sunlight reflections — the primary motivation for including 141 REFLEJO images in the training corpus. Coco achieves 0.93 and Minador 0.91 true positive rates. Inter-class confusion between disease classes is negligible (≤0.02 across all off-diagonal disease-disease pairs).
+
+
+Figure 2. Normalised confusion matrix — DECAFIA YOLOv8m baseline, test set (286 images). Values are row-normalised proportions. Rows: true class; Columns: predicted class.
+
+4.5. Precision-Recall Curves
+Figure 3 shows per-class PR curves. All three disease classes maintain precision above 0.95 across most of the recall range. Roya degrades earlier (from recall ≈ 0.55) consistent with higher visual ambiguity. AP50 values: Roya 0.884, Coco 0.951, Minador 0.946, mean mAP@0.5 = 0.927 (validation set).
+
+
+Figure 3. Precision-Recall curves per class — DECAFIA YOLOv8m baseline. AP@0.5: Roya 0.884, Coco 0.951, Minador 0.946, all classes 0.927 (validation set).
+
+4.6. Training Dynamics
+Figure 4 shows training and validation curves across 100 epochs. All losses decrease without divergence, confirming absence of overfitting. Validation mAP50 plateaus near 0.92 around epoch 80 and peaks at epoch 98 (mAP50 = 0.929), confirming that the patience = 50 configuration was correctly calibrated.
+
+
+Figure 4. Training curves — DECAFIA YOLOv8m baseline, 100 epochs. Top: train losses, precision, recall. Bottom: val losses, mAP50, mAP50-95. Best checkpoint at epoch 98.
+
+4.7. Qualitative Predictions
+Figure 5 shows representative test-set predictions across disease types, severities, and field conditions. The model correctly localises multiple disease instances per image, handles mixed-disease scenarios, and correctly identifies healthy leaves.
+
+
+Figure 5. Representative test-set predictions with confidence scores. Orange: Roya; Blue: Coco; Purple: Minador; ‘Sano’: healthy leaf identified.
+
+5. Discussion
+5.1. Dataset Novelty and Position in the Literature
+DECAFIA contributes the first publicly available annotated dataset incorporating images captured under Colombian Andean field conditions for coffee leaf disease detection. Its distinguishing characteristics are: (1) the Coco class (Curculionidae weevil defoliation) is absent from all prior public datasets; (2) field acquisition under uncontrolled natural lighting without background apparatus maximises ecological validity; (3) SAM-assisted polygon annotation supports future instance segmentation research; (4) deliberate inclusion of 141 reflection images addresses the primary false-positive risk for rust detection. The baseline result of mAP50 = 92.4% is competitive with published agricultural detection benchmarks [4] and consistent with performance achievable when training and evaluation data are domain-matched.
+5.2. The mAP50 / mAP50-95 Gap
+The gap between mAP50 = 92.4% and mAP50-95 = 76.6% is expected for field-collected phytopathological images and does not reflect a model weakness. Rust pustules, insect damage sites, and mining trails present diffuse boundaries where expert annotators themselves show inter-rater variability in exact lesion extent. SAM-assisted annotation explicitly revealed this boundary ambiguity: adjudication was required for cases where lesion edges blended into surrounding healthy tissue. The mAP50-95 gap is therefore a property of the annotation problem’s inherent ambiguity, consistent with other in-the-wild agricultural benchmarks [4].
+5.3. Limitations
+(1) Dataset heterogeneity: Source 3 images (MINEIRO_*, Brazilian laboratory) were acquired under controlled conditions with white backgrounds, introducing a distribution shift relative to Colombian field images. Users targeting Colombian field deployment should consider subsetting or applying domain-specific augmentation. (2) Single plantation: all Colombian field images originate from one plantation at El Socorro, Santander. Generalisation to other municipalities, varieties, or Robusta cultivars has not been validated. (3) Severity proxy: bounding box count per image is used as a disease severity proxy; absolute leaf-area-based severity requires instance segmentation masks from the SAM polygon annotations, available from the corresponding author. (4) Coco taxonomy: formal species-level entomological confirmation was not conducted; the Curculionidae assignment is based on documented damage morphology consistent with Cenicafé field materials [14].
+
+6. Conclusions
+DECAFIA provides a multi-source annotated dataset of 2,786 coffee leaf images with 15,181 instances across four classes, incorporating original Colombian field images with re-annotated images from two complementary public sources under a unified annotation protocol (κ = 0.91). A YOLOv8m baseline achieves mAP50 = 92.4% and mAP50-95 = 76.6%, with per-class AP50 of 88.2% (roya), 94.1% (coco), and 94.9% (minador). The dataset fills a geographic gap in public resources for coffee disease detection and introduces the Coco class not previously available in any public detection dataset. The complete dataset, YOLO labels, and baseline model weights are available at Zenodo (DOI: 10.5281/zenodo.19931903) under CC BY 4.0.
+
+Data Availability Statement
+Dataset (images, YOLO labels, dataset.yaml): https://doi.org/10.5281/zenodo.19931903 (CC BY 4.0). Model weights (ONNX + PyTorch): https://huggingface.co/estebanr25/decafia. Source code: https://github.com/estebanr25/decafia. SAM polygon annotation files available from the corresponding author upon request.
+
+Author Contributions
+Conceptualisation, data collection, annotation, model training, software, writing: L.E.R.R. and A.F.S.M. Supervision, review, editing: J.G.B.P. All authors approved the final version.
+
+Funding
+This research received no external funding. The authors declare no financial interests.
+
+Conflicts of Interest
+The authors declare no conflicts of interest.
+
+Acknowledgments
+The authors thank the farm owners in El Socorro, Santander, for plantation access, and Cenicafé for phytosanitary guidelines. The authors acknowledge the creators of RoCoLe [16] and the rust-and-leaf-miner dataset [17] whose openly licensed data were incorporated and re-annotated in this work.
+
+References
+[1] Federación Nacional de Cafeteros de Colombia. Informe de Gestión 2024; FNC: Bogotá, Colombia, 2024.
+[2] Avelino, J.; Cristancho, M.; et al. The coffee rust crises in Colombia and Central America (2008–2013). Food Security 2015, 7, 303–321. https://doi.org/10.1007/s12571-015-0446-9
+[3] Boshier, D.H.; et al. Integrated pest management in Colombian coffee agroforestry systems. Agroforestry Systems 2018, 92, 1367–1384.
+[4] Tian, Y.; et al. MD-YOLO: Multi-scale Dense YOLO for small target pest detection. Computers and Electronics in Agriculture 2023, 213, 108233.
+[5] Araaf, R.T.; Minn, A.; Ahamed, T. Coffee Leaf Rust Disease Detection and Implementation of an Edge Device for Pruning Infected Leaves via Deep Learning. Sensors 2024, 24, 8018. https://doi.org/10.3390/s24248018
+[6] Mohanty, S.P.; Hughes, D.P.; Salathé, M. Using deep learning for image-based plant disease detection. Frontiers in Plant Science 2016, 7, 1419.
+[7] Sajitha, A.; et al. A comprehensive review of CNN-based plant disease detection. Artificial Intelligence Review 2025, 58, 1–45. https://doi.org/10.1007/s10462-024-11052-2
+[8] Dutta, A.; Zisserman, A. The VGG image annotator (VIA). Image and Vision Computing 2019, 89, 188–196.
+[9] Kirillov, A.; et al. Segment Anything. In Proceedings of the IEEE/CVF ICCV; Paris, 2023; pp. 4015–4026.
+[10] Ultralytics. YOLOv8. https://github.com/ultralytics/ultralytics (accessed March 2025).
+[11] Lin, T.Y.; et al. Microsoft COCO: Common Objects in Context. In Proceedings of ECCV; Springer: Zurich, 2014; pp. 740–755.
+[12] Buslaev, A.; et al. Albumentations: Fast and flexible image augmentations. Information 2020, 11, 125.
+[13] Somanna, H.P.; Stynes, P.; Muntean, C.H. A Deep Learning-Based Plant Disease Detection and Classification for Arabica Coffee Leaves. In AICS; Springer: Cham, 2024.
+[14] Constantino, L.M. et al. Otros habitantes naturales del cafetal. In Manual del Cafetero Colombiano; Cenicafé: Chinchiná, Colombia, 2013; Vol. 2, pp. 261–306. DOI: 10.38141/cenbook-0026_25.
+[15] Landis, J.R.; Koch, G.G. The measurement of observer agreement for categorical data. Biometrics 1977, 33, 159–174.
+[16] Parraga-Alava, J.; Cusme, K.; Loor, A.; Santander, E. RoCoLe: A robusta coffee leaf images dataset. Data in Brief 2019, 25, 104414. https://doi.org/10.17632/c5yvn32dzg
+[17] Silva, L.B.; Carneiro, A.L.C.; Faulin, M.S.A.R. Rust and leaf miner in coffee crop (Coffea arabica). Mendeley Data 2020, V5. https://doi.org/10.17632/vfxf4trtcg.5
+[18] Thapa, R.; et al. The Plant Pathology Challenge 2020 data set. Applications in Plant Sciences 2020, 8, e11390.
+[19] Cohen, J. A coefficient of agreement for nominal scales. Educational and Psychological Measurement 1960, 20, 37–46.

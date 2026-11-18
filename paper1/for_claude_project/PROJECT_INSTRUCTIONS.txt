@@ -1,0 +1,78 @@
+====================================================================
+PROJECT INSTRUCTIONS — DECAFIA Paper 1 (CoffeeLeaf-CO)
+====================================================================
+
+REPLACE the entire project instructions with this text.
+(The old instructions say "split agrupado sin fuga" — that phrase is now incorrect and must not appear.)
+
+--------------------------------------------------------------------
+PROJECT DESCRIPTION (replace "split agrupado sin fuga" section)
+--------------------------------------------------------------------
+
+This is a research project producing a journal article about the DECAFIA dataset — a multi-source, field-collected, annotated dataset for coffee leaf disease detection under Colombian Andean conditions.
+
+Split: grouped by leaf ("split agrupado por hoja"). The split uses group-based assignment to prevent crop-parent and capture-series pairs from crossing split boundaries. It is NOT described as "leakage-free" or "sin fuga".
+
+Official model: decafia_grouped_v1 (YOLOv8m, seed 42) on split_grouped_v1.
+
+--------------------------------------------------------------------
+OFFICIAL NUMBERS (from RESULTS_FINAL.md, iou=0.7)
+--------------------------------------------------------------------
+
+Full test set (n=356 images, 158 backgrounds):
+  mAP@0.50 = 0.929 (rounded to 3dp for manuscript)
+  mAP@0.50:0.95 = 0.734
+  Per-class mAP@0.50: roya=0.841, coco=0.962, minador=0.985†
+
+Confidence intervals (95%, B=2000, cluster bootstrap over leaf groups):
+  coco: [0.801, 0.971]  — REPORTABLE
+  roya: cluster CI NOT REPORTABLE (53.1% in one group); image-level secondary: [0.803, 0.874]
+  minador: CI NOT REPORTED IN MANUSCRIPT (see caveat below)
+  Overall CI: NOT REPORTED
+
+Contamination sensitivity (filtered test, n=307):
+  mAP@0.50 = 0.926, delta = -0.004
+  NOTE: two test sets differ; this is sensitivity, not a corrected metric.
+
+--------------------------------------------------------------------
+MINADOR CAVEAT (†)
+--------------------------------------------------------------------
+
+Minador test images share group membership with training images through SIFT+geometric-verified transformed copies (the MINEIRO_99 component, 272 images). mAP@0.50 = 0.985 cannot be interpreted as performance on independent held-out leaves. Report it only with this caveat; do NOT report a CI.
+
+Roya test images are NOT contaminated (the one candidate cross-component edge fails geometric verification). The roya CI issue is purely statistical (one group holds 53% of instances).
+
+--------------------------------------------------------------------
+RULES FOR ALL OUTPUTS
+--------------------------------------------------------------------
+
+1. Never write "92.4%" or "76.6%" or "2,786" — these are from a superseded dataset version.
+2. coco = Curculionidae (Compsus sp. / Epicaerus sp.). Never write Coccinellidae or Pseudococcidae.
+3. All mAP values as decimals (0.929), never as percentages.
+4. The split is "grouped by leaf" or "grouped split" — never "leakage-free" or "sin fuga".
+5. Any sentence about test-set performance must state the contamination sensitivity finding.
+6. Do not report an overall cluster CI. Do not report a minador cluster CI.
+7. Report roya image-level CI labeled "image-level (secondary; ignores within-leaf correlation)".
+8. Minador test performance caveat must accompany every mention of minador mAP.
+
+--------------------------------------------------------------------
+CURRENT DRAFT STATE
+--------------------------------------------------------------------
+
+Manuscript file: paper1/manuscript/CoffeeLeafCO_manuscript_v1.docx
+Target journal: Ingeniería e Investigación (Universidad Nacional de Colombia)
+Submission deadline: 2026-11-30
+Language: English only (abstract also in Spanish)
+Word limit: 6,000 words (current ~3,378)
+Reference style: IEEE
+
+Outstanding items (do NOT invent values for these):
+- [CONFIRMAR: OK to describe annotation supervisor anonymously?]
+- [VERIFY: κ = 0.91 inter-annotator agreement — confirm source file]
+- [VERIFY: no Compsus/Epicaerus/coco coffee dataset exists in public repositories]
+- [CONFIRMAR: Zenodo same-day preprint — does it require prior Editorial Committee approval?]
+- [PENDIENTE: Zenodo v2.1.0 version DOI]
+- [PENDIENTE: Hugging Face model URL]
+- [VERIFY: UIS thesis on DECAFIA / AI for coffee — confirm title/authors/year/handle]
+
+====================================================================
