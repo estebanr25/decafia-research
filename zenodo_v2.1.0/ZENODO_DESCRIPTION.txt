@@ -1,0 +1,91 @@
+ZENODO DESCRIPTION — DECAFIA v2.1.0
+(Ready to paste into Zenodo upload form)
+
+===========================================================================
+TITLE
+===========================================================================
+DECAFIA: A Multi-Source Field-Collected Dataset for Coffee Leaf Disease Detection
+Under Colombian Andean Conditions (CoffeeLeaf-CO) — v2.1.0
+
+===========================================================================
+DESCRIPTION (paste into "Description" field)
+===========================================================================
+<p><strong>DECAFIA</strong> (DEtección de enfermedades en hojas de CAfé, FIncas de
+Área cafetera de Colombia) is a multi-source annotated dataset for coffee leaf disease
+detection under Colombian Andean field conditions.</p>
+
+<p><strong>Version 2.1.0</strong> adds the grouped split (split_grouped_v1), the
+integrity audit exclusion list, and the accompanying journal article. See
+CORRECTIONS.md for all changes since v2.0.0.</p>
+
+<h3>Dataset summary</h3>
+<ul>
+  <li>2,315 annotated images (+ 1,113 background images)</li>
+  <li>12,794 bounding-box instances across 3 classes</li>
+  <li>Classes: roya (Hemileia vastatrix), coco (Curculionidae weevil damage), minador (Leucoptera coffeella)</li>
+  <li>Split: grouped by leaf (split_grouped_v1)</li>
+  <li>Annotation format: YOLO normalized bounding boxes</li>
+</ul>
+
+<h3>Image sources</h3>
+<ul>
+  <li>74% (1,705 images): original field collection, Coffea arabica plantation,
+      El Socorro, Santander, Colombia (~1,500 m a.s.l.), 2024</li>
+  <li>26% (610 images): re-annotated from Silva et al. 2020
+      (doi:10.17632/vfxf4trtcg.5, CC BY 4.0), Brazilian laboratory images</li>
+</ul>
+
+<h3>Baseline model (decafia_grouped_v1 — YOLOv8m)</h3>
+<ul>
+  <li>mAP@0.50 = 0.929 (full 356-image test set, NMS IoU = 0.7)</li>
+  <li>mAP@0.50:0.95 = 0.734</li>
+  <li>Coco: mAP@0.50 = 0.962 (95% cluster CI [0.801, 0.971])</li>
+  <li>Roya: mAP@0.50 = 0.841 (95% image-level CI [0.803, 0.874], secondary)</li>
+  <li>Minador: mAP@0.50 = 0.985† (CI not reported — see integrity caveat)</li>
+</ul>
+
+<p><strong>⚠ Integrity caveat:</strong> A post-hoc audit identified 49 test images
+(13.8%) with geometrically verified training-split copies. All minador test images
+belong to the MINEIRO_99 component (272 images); minador mAP cannot be interpreted
+as performance on independent held-out leaves. Excluding the 49 affected images
+yields mAP@0.50 = 0.926 (Δ = −0.004). See CORRECTIONS.md.</p>
+
+<h3>Attribution for redistributed images</h3>
+<p>Images with MINEIRO_* prefix are derived from Silva et al. 2020
+(doi:10.17632/vfxf4trtcg.5) under CC BY 4.0. Original annotations not used;
+all bounding-box labels are new DECAFIA annotations.</p>
+
+===========================================================================
+KEYWORDS (paste as comma-separated tags)
+===========================================================================
+coffee leaf disease, object detection, YOLOv8, Colombian Andean conditions,
+Hemileia vastatrix, Leucoptera coffeella, Curculionidae, weevil, dataset,
+bounding box, grouped split, integrity audit
+
+===========================================================================
+RELATED IDENTIFIERS
+===========================================================================
+- Is supplement to: [ARTICLE DOI when published] (journal article)
+- Is new version of: 10.5281/zenodo.22756170 (v2.0.0)
+- References: 10.17632/vfxf4trtcg.5 (Silva et al. source dataset)
+- References: 10.17632/c5yvn32dzg (RoCoLe — previously included, removed in v2.0.0)
+- Is compiled by: https://github.com/estebanr25/decafia-research
+
+===========================================================================
+VERSION NOTES (paste in "Version" or "Notes" field)
+===========================================================================
+v2.1.0 — Grouped split (split_grouped_v1) + integrity audit exclusion list +
+companion journal article. Corrections relative to v2.0.0 documented in CORRECTIONS.md.
+
+v2.0.0 — Corrected release: removed 454 RoCoLe healthy-leaf images to preserve
+RoCoLe as independent validation set; corrected coco-class taxonomy (Curculionidae,
+not a separate mis-labeled category); removed 'hojas' whole-leaf class (zero instances
+after correction); fixed source attribution for MINEIRO_* images.
+
+v1.0.0 — Initial release (2,786 images, 15,181 instances, 4 classes). Superseded.
+
+===========================================================================
+LICENSE
+===========================================================================
+CC BY 4.0 International
+(MINEIRO_* images redistributed from Silva et al. 2020 under their CC BY 4.0 license)
