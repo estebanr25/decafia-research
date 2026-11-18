@@ -40,9 +40,9 @@ verified visually for a subset). Of these, 25 carry roya annotations (3.0% of te
 roya instances), 12 carry coco annotations (1.5%), and 88 carry minador annotations
 (23.5%). To measure the effect, the model was evaluated on both the full test set
 (n=356) and a filtered test set that excludes the 49 affected images (n=307). The
-results are mAP50=0.928148 [95% CI 0.847-0.943] on the full test set and mAP50=0.926117
-on the filtered set (delta=-0.0021). These two test sets have different compositions;
-this comparison measures sensitivity to the contamination and is not a corrected metric."
+results are mAP50=0.929377 on the full test set and mAP50=0.925574 on the filtered
+set (delta=-0.0038). These two test sets have different compositions; this comparison
+measures sensitivity to the contamination and is not a corrected metric."
 
 ---
 
@@ -60,10 +60,32 @@ this comparison measures sensitivity to the contamination and is not a corrected
 | minador | 88 | 375 | 23.5% |
 
 Note: minador is disproportionately affected (23.5%) because the MINEIRO_99 group
-(the largest group, 290 images) contains most minador images, and 49 of its test
-images happen to have copies in train.
+(the largest group, originally 290 images, confirmed real by SIFT+mask verification)
+contains most minador images, and 49 of its test images have transformed copies in train.
 
 ---
 
-All numbers above are from paper1/results/metrics_final.json
-(phase4.test_set_full and exclusion_list sections).
+## 5. Bootstrap CI note (new — required)
+
+The overall mAP50 confidence interval is not reported because the roya cluster bootstrap
+is invalid: one cluster (ROYA_RECORTES_107) contains 53.1% of test-set roya instances,
+exceeding the 50% single-cluster threshold.
+
+Per-class cluster bootstrap CIs (95%, B=2000, seed=42):
+- coco: [0.8012, 0.9713]
+- minador: [0.9731, 0.9998]
+- roya: cluster CI not reportable; image-level only (secondary): [0.8033, 0.8735]
+
+---
+
+## 6. Minador test performance caveat (new — required)
+
+Add to limitations: "The minador class test images share group membership with training
+images through SIFT+geometric-verified transformed copies. The minador test mAP50
+(0.985) cannot be interpreted as performance on independent held-out leaves.
+Performance on roya and coco is reported without this caveat."
+
+---
+
+All numbers above are from paper1/results/metrics_final.json (phase4.test_set_full,
+filtered_test, exclusion_list sections).

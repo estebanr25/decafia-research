@@ -1,0 +1,138 @@
+=== Phase 3: MINEIRO_99 Component Verification ===
+Started: 2026-11-17 19:01:59
+Loaded 2315 images, 151 v1 groups
+
+--- Step 1: Anatomy of MINEIRO_99 ---
+MINEIRO_99 component size (before reverification): 339
+  Splits (v1): {'train': 210, 'val': 63, 'test': 66}
+  Prefixes: {'COCO_RECORTE': 6, 'MINADOR': 59, 'MINADO_RECORTES': 78, 'MINEIRO': 152, 'ROYA_FONDO': 40, 'ROYA_RECORTES': 4}
+  Annotations: roya=638, coco=39, minador=1747
+Cross-group edges touching MINEIRO_99 component: 39
+  (a) V1 intra-group-root edges: handled by step A (kept as-is)
+  (b) Tier A pHash d<=4: 22
+  (b) Tier A SIFT-verified (sept/nov): 17
+  (c) Tier B SIFT-verified: 0
+
+--- Step 2: SIFT+RANSAC Verification of Cross-Group Edges ---
+Verifying 39 cross-group edges...
+  [1/39] MINADOR_12 <-> MINEIRO_116  tier=A d=4
+    -> inliers=461, hull_cov=1.932, fg=green_leaf: PASS
+  [2/39] MINADOR_12 <-> MINEIRO_4  tier=A d=1
+    -> inliers=472, hull_cov=1.910, fg=green_leaf: PASS
+  [3/39] MINADOR_14 <-> MINEIRO_10  tier=A d=9
+    -> inliers=1382, hull_cov=1.331, fg=green_leaf: PASS
+  [4/39] MINADOR_47 <-> MINEIRO_115  tier=A d=7
+    -> inliers=59, hull_cov=1.078, fg=green_leaf: PASS
+  [5/39] MINADOR_50 <-> ROYA_FONDO_35  tier=A d=4
+    -> inliers=4, hull_cov=0.226, fg=green_leaf: FAIL
+  [6/39] MINADO_RECORTES_107 <-> MINADO_RECORTES_123  tier=A d=0
+    -> inliers=168, hull_cov=0.676, fg=white_bg: PASS
+  [7/39] MINADO_RECORTES_107 <-> MINADO_RECORTES_124  tier=A d=0
+    -> inliers=164, hull_cov=0.675, fg=white_bg: PASS
+  [8/39] MINADO_RECORTES_108 <-> MINADO_RECORTES_123  tier=A d=0
+    -> inliers=184, hull_cov=0.678, fg=white_bg: PASS
+  [9/39] MINADO_RECORTES_108 <-> MINADO_RECORTES_124  tier=A d=0
+    -> inliers=198, hull_cov=0.678, fg=white_bg: PASS
+  [10/39] MINADO_RECORTES_109 <-> MINADO_RECORTES_125  tier=A d=0
+    -> inliers=610, hull_cov=0.752, fg=white_bg: PASS
+  [11/39] MINADO_RECORTES_109 <-> MINADO_RECORTES_126  tier=A d=0
+    -> inliers=586, hull_cov=0.752, fg=white_bg: PASS
+  [12/39] MINADO_RECORTES_110 <-> MINADO_RECORTES_125  tier=A d=0
+    -> inliers=548, hull_cov=0.767, fg=white_bg: PASS
+  [13/39] MINADO_RECORTES_110 <-> MINADO_RECORTES_126  tier=A d=0
+    -> inliers=574, hull_cov=0.767, fg=white_bg: PASS
+  [14/39] MINADO_RECORTES_113 <-> MINADO_RECORTES_129  tier=A d=0
+    -> inliers=392, hull_cov=0.761, fg=white_bg: PASS
+  [15/39] MINADO_RECORTES_113 <-> MINADO_RECORTES_130  tier=A d=0
+    -> inliers=373, hull_cov=0.737, fg=white_bg: PASS
+  [16/39] MINADO_RECORTES_114 <-> MINADO_RECORTES_129  tier=A d=0
+    -> inliers=436, hull_cov=0.744, fg=white_bg: PASS
+  [17/39] MINADO_RECORTES_114 <-> MINADO_RECORTES_130  tier=A d=0
+    -> inliers=426, hull_cov=0.746, fg=white_bg: PASS
+  [18/39] MINADO_RECORTES_115 <-> MINADO_RECORTES_131  tier=A d=0
+    -> inliers=294, hull_cov=0.815, fg=white_bg: PASS
+  [19/39] MINADO_RECORTES_115 <-> MINADO_RECORTES_132  tier=A d=0
+    -> inliers=269, hull_cov=0.817, fg=white_bg: PASS
+  [20/39] MINADO_RECORTES_116 <-> MINADO_RECORTES_131  tier=A d=0
+    -> inliers=290, hull_cov=0.822, fg=white_bg: PASS
+  [21/39] MINADO_RECORTES_116 <-> MINADO_RECORTES_132  tier=A d=0
+    -> inliers=286, hull_cov=0.821, fg=white_bg: PASS
+  [22/39] MINEIRO_105 <-> MINEIRO_44  tier=A d=4
+    -> inliers=6, hull_cov=0.026, fg=white_bg: FAIL
+  [23/39] COCO_RECORTE_113 <-> COCO_RECORTE_110  tier=A d=-1
+    -> inliers=114, hull_cov=0.620, fg=green_leaf: PASS
+  [24/39] MINADO_RECORTES_125 <-> MINADO_RECORTES_85  tier=A d=-1
+    -> inliers=215, hull_cov=0.508, fg=white_bg: PASS
+  [25/39] MINADO_RECORTES_125 <-> MINADOR_27  tier=A d=-1
+    -> inliers=27, hull_cov=0.539, fg=white_bg: FAIL
+  [26/39] MINADO_RECORTES_41 <-> MINADO_RECORTES_115  tier=A d=-1
+    -> inliers=94, hull_cov=0.663, fg=white_bg: PASS
+  [27/39] MINADO_RECORTES_41 <-> MINADO_RECORTES_116  tier=A d=-1
+    -> inliers=98, hull_cov=0.642, fg=white_bg: PASS
+  [28/39] MINADOR_14 <-> MINEIRO_151  tier=A d=-1
+    -> inliers=740, hull_cov=1.294, fg=green_leaf: PASS
+  [29/39] MINADOR_14 <-> MINEIRO_95  tier=A d=-1
+    -> inliers=694, hull_cov=1.112, fg=green_leaf: PASS
+  [30/39] MINADOR_14 <-> MINEIRO_11  tier=A d=-1
+    -> inliers=614, hull_cov=1.151, fg=green_leaf: PASS
+  [31/39] MINADOR_14 <-> MINEIRO_84  tier=A d=-1
+    -> inliers=739, hull_cov=1.336, fg=green_leaf: PASS
+  [32/39] MINADO_RECORTES_132 <-> MINEIRO_169  tier=A d=-1
+    -> inliers=128, hull_cov=0.635, fg=white_bg: PASS
+  [33/39] MINADOR_12 <-> MINEIRO_5  tier=A d=-1
+    -> inliers=426, hull_cov=1.842, fg=green_leaf: PASS
+  [34/39] MINADO_RECORTES_126 <-> MINADO_RECORTES_85  tier=A d=-1
+    -> inliers=222, hull_cov=0.503, fg=white_bg: PASS
+  [35/39] MINADO_RECORTES_126 <-> MINADOR_27  tier=A d=-1
+    -> inliers=25, hull_cov=0.414, fg=white_bg: FAIL
+  [36/39] MINADO_RECORTES_131 <-> MINEIRO_169  tier=A d=-1
+    -> inliers=137, hull_cov=0.637, fg=white_bg: PASS
+  [37/39] MINADO_RECORTES_40 <-> MINADO_RECORTES_115  tier=A d=-1
+    -> inliers=176, hull_cov=0.522, fg=white_bg: PASS
+  [38/39] MINADO_RECORTES_40 <-> MINADO_RECORTES_116  tier=A d=-1
+    -> inliers=174, hull_cov=0.600, fg=white_bg: PASS
+  [39/39] MINADO_RECORTES_48 <-> MINADO_RECORTES_82  tier=A d=-1
+    -> inliers=38, hull_cov=0.783, fg=white_bg: PASS
+
+Verification complete: 35 pass, 4 fail in 15.5s
+
+--- Step 3: Rebuild components with verified edges only ---
+Components after verification: 122
+Largest component: 322
+Top 5 component sizes: [322, 272, 239, 180, 146]
+MINEIRO_99 component after verification: 272
+Components with minador test instances: 1
+  root=MINEIRO_99: size=272, minador_test=375
+
+--- Step 4: Path A Conditions ---
+Split counts after rebalancing: {'test': 355, 'val': 378, 'train': 1582}
+Cond 1 (zero cross-split copies): PASS (0 remaining cross-split merged pairs)
+Cond 2 (max component < 231): FAIL (largest=322)
+Cond 3 (all classes >= 100 test): FAIL (roya=649, coco=759, minador=0)
+  train: 1582 (68.3% vs target 68.1%, drift 0.24pp)
+  val: 378 (16.3% vs target 16.5%, drift 0.17pp)
+  test: 355 (15.3% vs target 15.4%, drift 0.07pp)
+Cond 4 (proportions within 2pp): PASS
+
+--- Writing output ---
+Written: C:\Users\luise\temp\decafia-research\split_v2\mineiro99_verification.json
+
+============================================================
+SUMMARY
+============================================================
+Cross-group edges total:  39
+Cross-group edges pass:   35
+Cross-group edges fail:   4
+Largest component before: 339
+Largest component after:  322
+MINEIRO_99 comp before:   339
+MINEIRO_99 comp after:    272
+Path A feasible:          NO
+Failing conditions:       cond2_max_component_lt_10pct, cond3_all_classes_ge_100_test
+============================================================
+
+Result: Path B confirmed
+  FAILED: cond2_max_component_lt_10pct
+  FAILED: cond3_all_classes_ge_100_test
+
+Done: 2026-11-17 19:02:15
