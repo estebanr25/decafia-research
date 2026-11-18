@@ -1,0 +1,81 @@
+=== Phase 4: Evidence Package ===
+Collecting test images and ground truth...
+Test images: 356, backgrounds: 158
+
+Running inference on all test images...
+  [160/356] 6.1s
+  [320/356] 8.8s
+Inference done in 9.4s
+
+Matching predictions to ground truth...
+Per-image matching done for 356 images
+Per-image stats saved
+
+Recomputing mAP from per-image stats...
+Recomputed mAP50=0.928148 (reference=0.929781)
+Recomputed mAP50-95=0.722829 (reference=0.731766)
+
+Computing P/R/F1 at conf=0.50...
+  roya: P=0.8501 R=0.6945 F1=0.7645 (TP=573 FP=101 FN=252)
+  coco: P=0.9187 R=0.8963 F1=0.9074 (TP=735 FP=65 FN=85)
+  minador: P=0.9471 R=0.9547 F1=0.9509 (TP=358 FP=20 FN=17)
+  all: P=0.8996 R=0.8248 F1=0.8605
+Background FA at conf=0.50: 3/158 = 0.0190
+
+Recall by box size (COCO pixel thresholds)...
+  roya: {'small': {'recall': 0.967, 'tp': 440, 'fn': 15}, 'medium': {'recall': 0.9614, 'tp': 249, 'fn': 10}, 'large': {'recall': 0.982, 'tp': 109, 'fn': 2}}
+  coco: {'small': {'recall': 0.9943, 'tp': 175, 'fn': 1}, 'medium': {'recall': 0.9966, 'tp': 593, 'fn': 2}, 'large': {'recall': 1.0, 'tp': 49, 'fn': 0}}
+  minador: {'small': {'recall': 1.0, 'tp': 17, 'fn': 0}, 'medium': {'recall': 1.0, 'tp': 155, 'fn': 0}, 'large': {'recall': 1.0, 'tp': 203, 'fn': 0}}
+
+Building confusion matrix...
+Confusion matrix (rows=predicted, cols=true):
+  Classes: ['roya', 'coco', 'minador'] + background
+  CM:
+[[573   0   0 101]
+ [  0 735   0  65]
+ [  0   0 358  20]
+ [252  85  17   0]]
+
+GT counts: {0: 825, 1: 820, 2: 375}
+CM column sums: {0: 825, 1: 820, 2: 375}
+CM column sums match GT counts: True
+
+Computing 95% bootstrap CIs (B=2000, seed=42)...
+Bootstrap CIs (mAP50, 95%, B=2000, seed=42):
+  Cluster bootstrap: {'overall': {'lo': 0.8468527008759897, 'hi': 0.9430474087432043}, 'roya': {'lo': 0.7047315419560088, 'hi': 0.8795984866734996}, 'coco': {'lo': 0.8011976064938466, 'hi': 0.9714576225388836}, 'minador': {'lo': 0.9733921466961976, 'hi': 0.9997577519379846}}
+  Image bootstrap:   {'overall': {'lo': 0.9147087934747742, 'hi': 0.9403964187737788}, 'roya': {'lo': 0.8013227970666799, 'hi': 0.8723720397427769}, 'coco': {'lo': 0.9504502918984497, 'hi': 0.9739085098064351}, 'minador': {'lo': 0.9731890903754045, 'hi': 0.9916631347591615}}
+
+Roya by source...
+  own_field: n_imgs=269 n_inst=638 P=0.8698 R=0.6912
+  rust_and_leaf_miner: n_imgs=87 n_inst=187 P=0.7904 R=0.7059
+
+Building error galleries...
+FP on background: 3 (top 12 shown)
+Missed roya: 27 total, showing first 12
+
+Loading training curves...
+  Training CSV: 100 epochs, columns: ['epoch', 'time', 'train/box_loss', 'train/cls_loss', 'train/dfl_loss', 'metrics/precision(B)']...
+
+Building metrics_final.json...
+Banned-string check passed for JSON
+metrics_final.json updated
+
+Generating figures...
+  Saved C:\Users\luise\temp\decafia-research\paper1\figures\figure3_confusion_counts.png
+  Saved C:\Users\luise\temp\decafia-research\paper1\figures\figure3_confusion_normalized.png
+  Saved C:\Users\luise\temp\decafia-research\paper1\figures\figure7_bootstrap_intervals.png
+  Saved C:\Users\luise\temp\decafia-research\paper1\figures\figure5_training_curves.png
+Figures saved
+
+Writing RESULTS_FINAL.md...
+RESULTS_FINAL.md written
+NUMBERS_FOR_MANUSCRIPT.md written
+LIMITATIONS_DRAFT.md written
+FIGURES.md written
+
+Running banned-string check on all outputs...
+All banned-string checks passed
+
+=== Phase 4 complete ===
+mAP50=0.928148, mAP50-95=0.722829
+CIs (cluster): overall [0.8469, 0.9430]

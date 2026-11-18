@@ -1,0 +1,532 @@
+{
+  "component_before_verification": {
+    "size": 339,
+    "splits": {
+      "train": 210,
+      "val": 63,
+      "test": 66
+    },
+    "prefixes": {
+      "COCO_RECORTE": 6,
+      "MINADOR": 59,
+      "MINADO_RECORTES": 78,
+      "MINEIRO": 152,
+      "ROYA_FONDO": 40,
+      "ROYA_RECORTES": 4
+    },
+    "n_cross_group_edges": 39,
+    "annotations": {
+      "roya": 638,
+      "coco": 39,
+      "minador": 1747
+    },
+    "edge_breakdown": {
+      "v1_intra_group": "kept_as_is",
+      "tier_a_phash_d_le_4": 22,
+      "tier_a_sift_verified_sept_nov": 17,
+      "tier_b_sift_verified": 0
+    }
+  },
+  "cross_group_edges_verified": [
+    {
+      "stem_a": "MINADOR_12",
+      "stem_b": "MINEIRO_116",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": 4,
+      "tier": "A",
+      "inliers": 461,
+      "hull_cov": 1.9318,
+      "fg_type": "green_leaf",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADOR_12",
+      "stem_b": "MINEIRO_4",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": 1,
+      "tier": "A",
+      "inliers": 472,
+      "hull_cov": 1.9103,
+      "fg_type": "green_leaf",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADOR_14",
+      "stem_b": "MINEIRO_10",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": 9,
+      "tier": "A",
+      "inliers": 1382,
+      "hull_cov": 1.3315,
+      "fg_type": "green_leaf",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADOR_47",
+      "stem_b": "MINEIRO_115",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": 7,
+      "tier": "A",
+      "inliers": 59,
+      "hull_cov": 1.0782,
+      "fg_type": "green_leaf",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADOR_50",
+      "stem_b": "ROYA_FONDO_35",
+      "split_a": "test",
+      "split_b": "val",
+      "phash_dist": 4,
+      "tier": "A",
+      "inliers": 4,
+      "hull_cov": 0.2255,
+      "fg_type": "green_leaf",
+      "passes": false
+    },
+    {
+      "stem_a": "MINADO_RECORTES_107",
+      "stem_b": "MINADO_RECORTES_123",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 168,
+      "hull_cov": 0.6764,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_107",
+      "stem_b": "MINADO_RECORTES_124",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 164,
+      "hull_cov": 0.6747,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_108",
+      "stem_b": "MINADO_RECORTES_123",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 184,
+      "hull_cov": 0.6776,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_108",
+      "stem_b": "MINADO_RECORTES_124",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 198,
+      "hull_cov": 0.6781,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_109",
+      "stem_b": "MINADO_RECORTES_125",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 610,
+      "hull_cov": 0.7521,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_109",
+      "stem_b": "MINADO_RECORTES_126",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 586,
+      "hull_cov": 0.7521,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_110",
+      "stem_b": "MINADO_RECORTES_125",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 548,
+      "hull_cov": 0.7675,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_110",
+      "stem_b": "MINADO_RECORTES_126",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 574,
+      "hull_cov": 0.7675,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_113",
+      "stem_b": "MINADO_RECORTES_129",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 392,
+      "hull_cov": 0.7606,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_113",
+      "stem_b": "MINADO_RECORTES_130",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 373,
+      "hull_cov": 0.737,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_114",
+      "stem_b": "MINADO_RECORTES_129",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 436,
+      "hull_cov": 0.7441,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_114",
+      "stem_b": "MINADO_RECORTES_130",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 426,
+      "hull_cov": 0.7458,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_115",
+      "stem_b": "MINADO_RECORTES_131",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 294,
+      "hull_cov": 0.8153,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_115",
+      "stem_b": "MINADO_RECORTES_132",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 269,
+      "hull_cov": 0.8169,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_116",
+      "stem_b": "MINADO_RECORTES_131",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 290,
+      "hull_cov": 0.8219,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_116",
+      "stem_b": "MINADO_RECORTES_132",
+      "split_a": "train",
+      "split_b": "test",
+      "phash_dist": 0,
+      "tier": "A",
+      "inliers": 286,
+      "hull_cov": 0.8213,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINEIRO_105",
+      "stem_b": "MINEIRO_44",
+      "split_a": "train",
+      "split_b": "val",
+      "phash_dist": 4,
+      "tier": "A",
+      "inliers": 6,
+      "hull_cov": 0.0263,
+      "fg_type": "white_bg",
+      "passes": false
+    },
+    {
+      "stem_a": "COCO_RECORTE_113",
+      "stem_b": "COCO_RECORTE_110",
+      "split_a": "val",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 114,
+      "hull_cov": 0.6202,
+      "fg_type": "green_leaf",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_125",
+      "stem_b": "MINADO_RECORTES_85",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 215,
+      "hull_cov": 0.5081,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_125",
+      "stem_b": "MINADOR_27",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 27,
+      "hull_cov": 0.5391,
+      "fg_type": "white_bg",
+      "passes": false
+    },
+    {
+      "stem_a": "MINADO_RECORTES_41",
+      "stem_b": "MINADO_RECORTES_115",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 94,
+      "hull_cov": 0.6626,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_41",
+      "stem_b": "MINADO_RECORTES_116",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 98,
+      "hull_cov": 0.6424,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADOR_14",
+      "stem_b": "MINEIRO_151",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 740,
+      "hull_cov": 1.2943,
+      "fg_type": "green_leaf",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADOR_14",
+      "stem_b": "MINEIRO_95",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 694,
+      "hull_cov": 1.1121,
+      "fg_type": "green_leaf",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADOR_14",
+      "stem_b": "MINEIRO_11",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 614,
+      "hull_cov": 1.1515,
+      "fg_type": "green_leaf",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADOR_14",
+      "stem_b": "MINEIRO_84",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 739,
+      "hull_cov": 1.336,
+      "fg_type": "green_leaf",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_132",
+      "stem_b": "MINEIRO_169",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 128,
+      "hull_cov": 0.6347,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADOR_12",
+      "stem_b": "MINEIRO_5",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 426,
+      "hull_cov": 1.8421,
+      "fg_type": "green_leaf",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_126",
+      "stem_b": "MINADO_RECORTES_85",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 222,
+      "hull_cov": 0.5027,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_126",
+      "stem_b": "MINADOR_27",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 25,
+      "hull_cov": 0.4135,
+      "fg_type": "white_bg",
+      "passes": false
+    },
+    {
+      "stem_a": "MINADO_RECORTES_131",
+      "stem_b": "MINEIRO_169",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 137,
+      "hull_cov": 0.6373,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_40",
+      "stem_b": "MINADO_RECORTES_115",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 176,
+      "hull_cov": 0.5221,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_40",
+      "stem_b": "MINADO_RECORTES_116",
+      "split_a": "test",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 174,
+      "hull_cov": 0.6,
+      "fg_type": "white_bg",
+      "passes": true
+    },
+    {
+      "stem_a": "MINADO_RECORTES_48",
+      "stem_b": "MINADO_RECORTES_82",
+      "split_a": "val",
+      "split_b": "train",
+      "phash_dist": -1,
+      "tier": "A",
+      "inliers": 38,
+      "hull_cov": 0.783,
+      "fg_type": "white_bg",
+      "passes": true
+    }
+  ],
+  "edges_pass": 35,
+  "edges_fail": 4,
+  "mineiro99_component_after_size": 272,
+  "largest_component_after": 322,
+  "n_components_after": 122,
+  "path_a_feasible": false,
+  "conditions": {
+    "cond1": true,
+    "cond2": false,
+    "cond3": false,
+    "cond4": true
+  },
+  "failing_conditions": [
+    "cond2_max_component_lt_10pct",
+    "cond3_all_classes_ge_100_test"
+  ],
+  "test_instances_after": {
+    "roya": 649,
+    "coco": 759,
+    "minador": 0
+  },
+  "split_counts_after": {
+    "test": 355,
+    "val": 378,
+    "train": 1582
+  },
+  "minador_frags_after": {
+    "MINEIRO_99": {
+      "size": 272,
+      "minador_test_instances": 375
+    }
+  }
+}

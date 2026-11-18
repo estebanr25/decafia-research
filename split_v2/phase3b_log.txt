@@ -1,0 +1,70 @@
+=== Phase 3B: Bound the effect (Path B) ===
+v1 test stems: 356
+
+Building exclusion list...
+Excluded test images (any copy): 49
+  with copy in train: 40
+  with copy only in val: 9
+Exclusion list saved: 49 images
+
+Building filtered test split file...
+Filtered test: 307 images (from 356, excluded 49)
+v1 model SHA-256: d8bf05c31ec37923ceb9a3224441301ba9d8442e42783841cfe4cfa120549d1a
+Filtered test YAML written: C:\Users\luise\temp\decafia-research\split_v2\data_v1_filtered_test.yaml
+
+=== Evaluating v1 model on FULL v1 test set ===
+Device: 0
+Ultralytics 8.4.148  Python-3.14.3 torch-2.11.0+cu128 CUDA:0 (NVIDIA GeForce RTX 5070 Laptop GPU, 8151MiB)
+Model summary (fused): 92 layers, 25,841,497 parameters, 0 gradients, 78.7 GFLOPs
+[34m[1mval: [0mFast image access  (ping: 0.10.0 ms, read: 141.751.1 MB/s, size: 59.3 KB)
+[K[34m[1mval: [0mScanning C:\Users\luise\OneDrive\Documentos\DECAFIA_v2\01_dataset\decafia_clean\labels\test... 83 images, 24 backgrounds, 0 corrupt: 23% ━━╸───────── 83/356 247.5it/s 0.1s<1.1s[K[34m[1mval: [0mScanning C:\Users\luise\OneDrive\Documentos\DECAFIA_v2\01_dataset\decafia_clean\labels\test... 187 images, 24 backgrounds, 0 corrupt: 52% ━━━━━━────── 187/356 476.3it/s 0.2s<0.4s[K[34m[1mval: [0mScanning C:\Users\luise\OneDrive\Documentos\DECAFIA_v2\01_dataset\decafia_clean\labels\test... 356 images, 158 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 356/356 1.4Kit/s 0.3s
+[34m[1mval: [0mNew cache created: C:\Users\luise\OneDrive\Documentos\DECAFIA_v2\01_dataset\decafia_clean\labels\test.cache
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 4% ╸─────────── 1/23 1.1it/s 0.3s<19.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 8% ━─────────── 2/23 2.8it/s 0.4s<7.6s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 13% ━╸────────── 3/23 4.1it/s 0.6s<4.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 17% ━━────────── 4/23 5.0it/s 0.7s<3.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 21% ━━╸───────── 5/23 5.4it/s 0.9s<3.3s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 26% ━━━───────── 6/23 5.3it/s 1.0s<3.2s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 30% ━━━╸──────── 7/23 5.4it/s 1.2s<3.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 34% ━━━━──────── 8/23 5.4it/s 1.4s<2.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 39% ━━━━╸─────── 9/23 5.1it/s 1.6s<2.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 43% ━━━━━─────── 10/23 4.9it/s 1.9s<2.6s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 47% ━━━━━╸────── 11/23 4.6it/s 2.1s<2.6s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 52% ━━━━━━────── 12/23 4.4it/s 2.4s<2.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 56% ━━━━━━╸───── 13/23 4.4it/s 2.6s<2.3s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 60% ━━━━━━━───── 14/23 4.5it/s 2.8s<2.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 65% ━━━━━━━╸──── 15/23 4.6it/s 3.0s<1.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 69% ━━━━━━━━──── 16/23 4.7it/s 3.2s<1.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 73% ━━━━━━━━╸─── 17/23 5.0it/s 3.4s<1.2s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 78% ━━━━━━━━━─── 18/23 5.4it/s 3.6s<0.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 82% ━━━━━━━━━╸── 19/23 5.7it/s 3.7s<0.7s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 86% ━━━━━━━━━━── 20/23 6.1it/s 3.9s<0.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 91% ━━━━━━━━━━╸─ 21/23 6.4it/s 4.0s<0.3s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 95% ━━━━━━━━━━━─ 22/23 6.9it/s 4.1s<0.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 23/23 5.5it/s 4.2s
+                   all        356       2020      0.882      0.873       0.93      0.732
+                  roya         85        825      0.807      0.743      0.841      0.533
+                  coco         73        820      0.909      0.909      0.963      0.793
+               minador         64        375      0.931      0.967      0.985      0.869
+Speed: 0.2ms preprocess, 7.3ms inference, 0.0ms loss, 0.5ms postprocess per image
+Full test evaluation complete.
+  results_dict key: metrics/precision(B) = 0.8823402406718021
+  results_dict key: metrics/recall(B) = 0.8727191325234521
+  results_dict key: metrics/mAP50(B) = 0.9297810225556495
+  results_dict key: metrics/mAP50-95(B) = 0.731766168018506
+  results_dict key: fitness = 0.731766168018506
+
+Full test metrics: {'label': 'v1_full_test', 'map50_overall': 0.929781, 'map50_95_overall': 0.731766, 'map50_per_class': {'roya': 0.841362, 'coco': 0.963009, 'minador': 0.984972}, 'map50_95_per_class': {'roya': 0.532908, 'coco': 0.792951, 'minador': 0.869439}}
+
+=== Evaluating v1 model on FILTERED v1 test set ===
+Ultralytics 8.4.148  Python-3.14.3 torch-2.11.0+cu128 CUDA:0 (NVIDIA GeForce RTX 5070 Laptop GPU, 8151MiB)
+Model summary (fused): 92 layers, 25,841,497 parameters, 0 gradients, 78.7 GFLOPs
+[34m[1mval: [0mFast image access  (ping: 0.00.0 ms, read: 1013.2318.1 MB/s, size: 58.3 KB)
+[K[34m[1mval: [0mScanning C:\Users\luise\OneDrive\Documentos\DECAFIA_v2\01_dataset\decafia_clean\labels\test... 307 images, 126 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 307/307 4.2Kit/s 0.1s
+[34m[1mval: [0mNew cache created: C:\Users\luise\OneDrive\Documentos\DECAFIA_v2\01_dataset\decafia_clean\labels\test.cache
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 5% ╸─────────── 1/20 2.4it/s 0.1s<8.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 10% ━─────────── 2/20 3.8it/s 0.3s<4.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 15% ━╸────────── 3/20 4.7it/s 0.4s<3.6s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 20% ━━────────── 4/20 5.4it/s 0.6s<2.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 25% ━━━───────── 5/20 5.8it/s 0.7s<2.6s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 30% ━━━╸──────── 6/20 6.0it/s 0.9s<2.3s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 35% ━━━━──────── 7/20 5.9it/s 1.0s<2.2s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 40% ━━━━╸─────── 8/20 5.8it/s 1.2s<2.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 45% ━━━━━─────── 9/20 5.5it/s 1.4s<2.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 50% ━━━━━━────── 10/20 5.1it/s 1.7s<2.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 55% ━━━━━━╸───── 11/20 4.7it/s 1.9s<1.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 60% ━━━━━━━───── 12/20 4.4it/s 2.2s<1.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 65% ━━━━━━━╸──── 13/20 4.5it/s 2.4s<1.6s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 70% ━━━━━━━━──── 14/20 4.7it/s 2.6s<1.3s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 75% ━━━━━━━━━─── 15/20 5.0it/s 2.8s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 80% ━━━━━━━━━╸── 16/20 5.4it/s 2.9s<0.7s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 85% ━━━━━━━━━━── 17/20 5.7it/s 3.1s<0.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 90% ━━━━━━━━━━╸─ 18/20 6.1it/s 3.2s<0.3s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 95% ━━━━━━━━━━━─ 19/20 6.8it/s 3.4s<0.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 20/20 5.9it/s 3.4s
+                   all        307       1895      0.883      0.865      0.926      0.727
+                  roya         83        800       0.81      0.734      0.836      0.531
+                  coco         71        808      0.907      0.906      0.962      0.793
+               minador         50        287      0.932      0.955       0.98      0.857
+Speed: 0.1ms preprocess, 6.7ms inference, 0.0ms loss, 0.5ms postprocess per image
+Filtered test evaluation complete.
+  results_dict key: metrics/precision(B) = 0.8829858836428918
+  results_dict key: metrics/recall(B) = 0.8647725421415812
+  results_dict key: metrics/mAP50(B) = 0.9261168294882861
+  results_dict key: metrics/mAP50-95(B) = 0.7269195637015685
+  results_dict key: fitness = 0.7269195637015685
+
+Filtered test metrics: {'label': 'v1_filtered_test', 'map50_overall': 0.926117, 'map50_95_overall': 0.72692, 'map50_per_class': {'roya': 0.836163, 'coco': 0.962087, 'minador': 0.980101}, 'map50_95_per_class': {'roya': 0.53114, 'coco': 0.793052, 'minador': 0.856566}}
+
+=== Background false-alarm rate at conf 0.50 ===
+Background images in test.txt: 158/356
+  Background FA rate: 4/158 = 0.0253
+Background images in v1_test_filtered.txt: 126/307
+  Background FA rate: 3/126 = 0.0238
+FA rate full: 0.025316, filtered: 0.02381
+
+Saving results...
+Results saved to C:\Users\luise\temp\decafia-research\paper1\results\metrics_final.json
+
+=== Phase 3B complete ===
+Full test mAP50=0.929781, mAP50-95=0.731766
+Filtered test mAP50=0.926117, mAP50-95=0.72692

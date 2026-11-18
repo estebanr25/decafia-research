@@ -1,0 +1,109 @@
+
+=== Phase 1: loading assignments ===
+All 2315 images found. Logical split counts: {'train': 1577, 'val': 382, 'test': 356}
+[cache] Loaded hashes (2315, 8) dtype=uint64
+
+Computing all-pairs min-dihedral Hamming distance (N=2315)...
+  transform k=0: 0.1s
+  transform k=1: 0.2s
+  transform k=2: 0.3s
+  transform k=3: 0.4s
+  transform k=4: 0.5s
+  transform k=5: 0.6s
+  transform k=6: 0.8s
+  transform k=7: 0.9s
+Found 6232 pairs with min-dihedral distance <= 12 in 0.9s
+Candidate pairs saved to C:\Users\luise\temp\decafia-research\_cache\candidate_pairs_le12.csv
+
+Loading September SIFT-verified pairs...
+September verified pairs: 120, unique queries: 71
+Unique September verified pair keys: 120, backdrop: 39
+Loading November integrity pairs...
+November pairs: 400, unique keys: 400
+
+Building unified candidate set...
+Added 57 SIFT-only pairs not found by pHash <= 12
+Total unified candidates: 6289
+
+Classifying pairs into tiers...
+Tier A total: 501
+Tier A cross-split: 107
+Tier B total: 364
+Tier B cross-split: 189
+Tier C (catalog only): 5424
+
+=== SIFT verification for 189 Tier B cross-split pairs ===
+  SIFT [20/189] merge=3 reject=17 12.7s
+  SIFT [40/189] merge=3 reject=37 23.9s
+  SIFT [60/189] merge=3 reject=57 35.2s
+  SIFT [80/189] merge=3 reject=77 48.4s
+  SIFT [100/189] merge=3 reject=97 60.3s
+  SIFT [120/189] merge=3 reject=117 74.1s
+  SIFT [140/189] merge=3 reject=137 86.1s
+  SIFT [160/189] merge=3 reject=157 97.8s
+  SIFT [180/189] merge=11 reject=169 113.9s
+SIFT Tier B done: merged=13, rejected=176
+
+Writing copy_pairs.csv...
+Saved 6289 rows to C:\Users\luise\temp\decafia-research\split_v2\copy_pairs.csv
+
+Merged cross-split pairs: 120
+Decision counts:
+decision
+reject    2925
+merge      120
+Name: count, dtype: int64
+
+Building audit comparison table...
+Audit comparison:
+  our_cross_split_d_le_4: 60
+  nov_cross_split_d_le_4: 60
+  overlap_our_and_nov: 57
+  only_in_our: 3
+  only_in_nov: 3
+  sept_sift_verified_cross_split: 120
+  overlap_sept_and_our_tiers_AB: 120
+
+SANAS_NUEVAS vs SANAS_SOCORRO analysis...
+C:\Users\luise\temp\decafia-research\split_v2\phase1_copy_pairs.py:526: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  sanas_pairs["prefix_a"] = sanas_pairs["stem_a"].apply(get_prefix)
+C:\Users\luise\temp\decafia-research\split_v2\phase1_copy_pairs.py:527: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  sanas_pairs["prefix_b"] = sanas_pairs["stem_b"].apply(get_prefix)
+SANAS cross-prefix pairs (any split): 595
+SANAS NUEVAS↔SOCORRO cross-split pairs: 119
+  ... at d<=4: 52
+  ... merged: 48
+SANAS answer: {'question': 'Are SANAS_NUEVAS images transformed copies of SANAS_SOCORRO images?', 'nuevas_socorro_cross_prefix_any_split_pairs_d_le_4': 52, 'nuevas_socorro_cross_split_merged_pairs': 48, 'note': 'Counts only; whether this represents systematic generation is not asserted from images alone.'}
+
+Generating contact sheets...
+  Saved C:\Users\luise\temp\decafia-research\split_v2\contact_tier_a_cross.png (107 pairs)
+  Saved C:\Users\luise\temp\decafia-research\split_v2\contact_tier_b_merged.png (13 pairs)
+  Saved C:\Users\luise\temp\decafia-research\split_v2\contact_tier_b_rejected.png (40 pairs)
+
+=== Phase 1 complete ===
+
+Phase 1 Summary:
+  Total candidate pairs (d<=12): 60 cross-split d<=4
+  Tier A cross-split (merge):   107
+  Tier B cross-split merged:    13
+  Tier B cross-split rejected:  176
+  SANAS NUEVAS↔SOCORRO cross-split merged: 48
+

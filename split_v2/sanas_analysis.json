@@ -1,0 +1,6 @@
+{
+  "question": "Are SANAS_NUEVAS images transformed copies of SANAS_SOCORRO images?",
+  "nuevas_socorro_cross_prefix_any_split_pairs_d_le_4": 52,
+  "nuevas_socorro_cross_split_merged_pairs": 48,
+  "note": "Counts only; whether this represents systematic generation is not asserted from images alone."
+}

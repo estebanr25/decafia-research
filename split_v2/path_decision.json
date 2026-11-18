@@ -1,0 +1,25 @@
+{
+  "path_chosen": "B",
+  "conditions": {
+    "cond1_zero_cross_split_copies": true,
+    "cond2_max_component_lt_10pct": false,
+    "cond3_all_classes_ge_100_test": false,
+    "cond4_proportions_within_2pp": true
+  },
+  "failing": [
+    "cond2_max_component_lt_10pct",
+    "cond3_all_classes_ge_100_test"
+  ],
+  "split_counts_v2": {
+    "test": 361,
+    "val": 387,
+    "train": 1567
+  },
+  "images_moved": 1078,
+  "max_component": 339,
+  "test_instances": {
+    "roya": 790,
+    "coco": 244,
+    "minador": 0
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "figure": "figure3_confusion_normalized",
+  "plotted_values": {
+    "cm_normalized": "normalized by true class (column sums)"
+  },
+  "input_hashes": {
+    "metrics_final.json": "304ff8ad1e5f152a179bfe21acece2e422666c435c4107dd6f7418b651ea571f"
+  },
+  "generated": "2026-11-16"
+}

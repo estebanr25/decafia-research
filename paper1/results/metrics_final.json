@@ -1,0 +1,369 @@
+{
+  "note": "Path B: sensitivity measurement only. The two test sets differ; this is not a corrected metric.",
+  "path_b_reason": [
+    "cond2_max_component_lt_10pct",
+    "cond3_all_classes_ge_100_test"
+  ],
+  "model": {
+    "name": "decafia_grouped_v1",
+    "weights": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\02_training\\runs\\decafia_grouped_v1\\weights\\best.pt",
+    "sha256": "d8bf05c31ec37923ceb9a3224441301ba9d8442e42783841cfe4cfa120549d1a"
+  },
+  "exclusion_list": {
+    "n_excluded": 49,
+    "excluded_by_train": 40,
+    "excluded_by_val_only": 9,
+    "file": "split_v2/v1_test_exclusion_list.csv"
+  },
+  "full_test": {
+    "n_images": 356,
+    "label": "v1_full_test",
+    "map50_overall": 0.929781,
+    "map50_95_overall": 0.731766,
+    "map50_per_class": {
+      "roya": 0.841362,
+      "coco": 0.963009,
+      "minador": 0.984972
+    },
+    "map50_95_per_class": {
+      "roya": 0.532908,
+      "coco": 0.792951,
+      "minador": 0.869439
+    },
+    "background_far_at_conf050": {
+      "n_background": 158,
+      "n_with_detection": 4,
+      "rate": 0.025316,
+      "examples": [
+        {
+          "path": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\01_dataset\\decafia_clean\\images\\train\\SANAS_NUEVAS_396.jpg",
+          "n_dets": 1
+        },
+        {
+          "path": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\01_dataset\\decafia_clean\\images\\train\\SANAS_NUEVAS_57.jpg",
+          "n_dets": 1
+        },
+        {
+          "path": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\01_dataset\\decafia_clean\\images\\train\\SANAS_SOCORRO_112.jpg",
+          "n_dets": 1
+        }
+      ]
+    }
+  },
+  "filtered_test": {
+    "n_images": 307,
+    "label": "v1_filtered_test",
+    "map50_overall": 0.925574,
+    "map50_95_overall": 0.729163,
+    "map50_per_class": {
+      "roya": 0.836163,
+      "coco": 0.962087,
+      "minador": 0.980101
+    },
+    "map50_95_per_class": {
+      "roya": 0.53114,
+      "coco": 0.793052,
+      "minador": 0.856566
+    },
+    "background_far_at_conf050": {
+      "n_background": 126,
+      "n_with_detection": 3,
+      "rate": 0.02381,
+      "examples": [
+        {
+          "path": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\01_dataset\\decafia_clean\\images\\train\\SANAS_NUEVAS_57.jpg",
+          "n_dets": 1
+        },
+        {
+          "path": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\01_dataset\\decafia_clean\\images\\train\\SANAS_SOCORRO_112.jpg",
+          "n_dets": 1
+        },
+        {
+          "path": "C:\\Users\\luise\\OneDrive\\Documentos\\DECAFIA_v2\\01_dataset\\decafia_clean\\images\\train\\SANAS_SOCORRO_398.jpg",
+          "n_dets": 1
+        }
+      ]
+    },
+    "nms_iou": 0.7,
+    "note_fix": "Re-evaluated with iou=0.7 to match September setting"
+  },
+  "phase4": {
+    "model": {
+      "name": "decafia_grouped_v1",
+      "sha256": "d8bf05c31ec37923ceb9a3224441301ba9d8442e42783841cfe4cfa120549d1a",
+      "note": "Path B official model; evaluated on its own v1 test split"
+    },
+    "nms_iou_setting": 0.7,
+    "nms_iou_note": "iou=0.7 matches September documented evaluation (CLEAN_TEST_RESULTS.md, RESULTS_grouped_v1.md)",
+    "conf_threshold_for_map": 0.001,
+    "evaluation_note": "Path B: v1 model on v1 test set. iou=0.7 (NMS) matches September setting.",
+    "test_set_full": {
+      "n_images": 356,
+      "n_backgrounds": 158,
+      "map50_model_val": 0.929377,
+      "map50_95_model_val": 0.734368,
+      "map50_per_class_model_val": {
+        "roya": 0.841307,
+        "coco": 0.961786,
+        "minador": 0.98504
+      },
+      "map50_95_per_class_model_val": {
+        "roya": 0.537046,
+        "coco": 0.794734,
+        "minador": 0.871323
+      },
+      "map50_recomputed": 0.928432,
+      "map50_95_recomputed": 0.723906,
+      "map50_per_class_recomputed": {
+        "roya": 0.840425,
+        "coco": 0.962468,
+        "minador": 0.982403
+      },
+      "map50_95_per_class_recomputed": {
+        "roya": 0.516993,
+        "coco": 0.789276,
+        "minador": 0.865448
+      },
+      "recomputed_matches_model_val": {
+        "map50": true,
+        "map50_95": false
+      },
+      "prf1_at_conf050": {
+        "roya": {
+          "P": 0.8454,
+          "R": 0.6958,
+          "F1": 0.7633,
+          "TP": 574,
+          "FP": 105,
+          "FN": 251
+        },
+        "coco": {
+          "P": 0.9178,
+          "R": 0.8988,
+          "F1": 0.9082,
+          "TP": 737,
+          "FP": 66,
+          "FN": 83
+        },
+        "minador": {
+          "P": 0.9347,
+          "R": 0.9547,
+          "F1": 0.9446,
+          "TP": 358,
+          "FP": 25,
+          "FN": 17
+        },
+        "all": {
+          "P": 0.8949,
+          "R": 0.8262,
+          "F1": 0.8592
+        }
+      },
+      "conf050_note": "P/R/F1 at confidence threshold 0.50",
+      "background_far_at_conf050": {
+        "n_background": 158,
+        "n_with_detection": 3,
+        "rate": 0.018987
+      },
+      "recall_by_box_size_at_conf050": {
+        "roya": {
+          "small": {
+            "recall": 0.967,
+            "tp": 440,
+            "fn": 15
+          },
+          "medium": {
+            "recall": 0.9614,
+            "tp": 249,
+            "fn": 10
+          },
+          "large": {
+            "recall": 0.982,
+            "tp": 109,
+            "fn": 2
+          }
+        },
+        "coco": {
+          "small": {
+            "recall": 0.9943,
+            "tp": 175,
+            "fn": 1
+          },
+          "medium": {
+            "recall": 0.9966,
+            "tp": 593,
+            "fn": 2
+          },
+          "large": {
+            "recall": 1.0,
+            "tp": 49,
+            "fn": 0
+          }
+        },
+        "minador": {
+          "small": {
+            "recall": 1.0,
+            "tp": 17,
+            "fn": 0
+          },
+          "medium": {
+            "recall": 1.0,
+            "tp": 155,
+            "fn": 0
+          },
+          "large": {
+            "recall": 1.0,
+            "tp": 203,
+            "fn": 0
+          }
+        }
+      },
+      "box_size_thresholds_px2": {
+        "small": "<1024 (32x32)",
+        "medium": "<9216 (96x96)",
+        "large": ">=9216"
+      },
+      "confusion_matrix_pred_true": [
+        [
+          574,
+          0,
+          0,
+          105
+        ],
+        [
+          0,
+          737,
+          0,
+          66
+        ],
+        [
+          0,
+          0,
+          358,
+          25
+        ],
+        [
+          251,
+          83,
+          17,
+          0
+        ]
+      ],
+      "cm_orientation": "cm[predicted,true]; last row/col=background",
+      "cm_column_sums_match_gt": true,
+      "gt_counts_per_class": {
+        "roya": 825,
+        "coco": 820,
+        "minador": 375
+      },
+      "bootstrap_map50_ci95": {
+        "method": "Cluster bootstrap (primary, per class where valid), image-level (secondary), B=2000, seed=42",
+        "note": "CIs reflect test-set sampling variability only (single training seed)",
+        "cluster_validity": {
+          "roya": {
+            "total_instances": 825,
+            "n_clusters": 10,
+            "max_cluster_pct": 53.09,
+            "can_report_cluster_ci": false,
+            "note": "CANNOT REPORT: single cluster holds 53.1% > 50% of test instances"
+          },
+          "coco": {
+            "total_instances": 820,
+            "n_clusters": 6,
+            "max_cluster_pct": 37.2,
+            "can_report_cluster_ci": true,
+            "note": "REPORTABLE"
+          },
+          "minador": {
+            "total_instances": 375,
+            "n_clusters": 4,
+            "max_cluster_pct": 43.73,
+            "can_report_cluster_ci": true,
+            "note": "REPORTABLE"
+          }
+        },
+        "overall_cluster_ci_reportable": false,
+        "overall_cluster_ci": "NOT REPORTED: roya cluster bootstrap invalid (single cluster >50% of instances)",
+        "per_class_cluster": {
+          "coco": {
+            "lo": 0.8012,
+            "hi": 0.9713,
+            "zero_pct": 0.1
+          },
+          "minador": {
+            "lo": 0.9731,
+            "hi": 0.9998,
+            "zero_pct": 1.4,
+            "reported": false,
+            "reported_reason": "Minador test images share group membership with training images through SIFT+geometric-verified transformed copies (MINEIRO_99 component, 272 images). mAP50=0.985 cannot be interpreted as performance on independent held-out leaves. CI retained in JSON for completeness but must not be reported in the manuscript."
+          }
+        },
+        "per_class_image_level": {
+          "roya": {
+            "lo": 0.8033,
+            "hi": 0.8735
+          },
+          "coco": {
+            "lo": 0.9505,
+            "hi": 0.9741
+          },
+          "minador": {
+            "lo": 0.972,
+            "hi": 0.9912
+          }
+        },
+        "image_level_note": "Image-level bootstrap ignores within-leaf correlation; shown as secondary only",
+        "cluster_method_note": "Clusters are v1 groups (group_root from split_grouped_v1 assignments.csv), not verified components. The cluster bootstrap validity check uses these groups: roya has 10 groups, coco 6 groups, minador 4 groups as clusters."
+      },
+      "roya_by_source": {
+        "own_field": {
+          "tp": 441,
+          "fp": 67,
+          "fn": 197,
+          "n_imgs": 269,
+          "n_inst": 638,
+          "P": 0.8681,
+          "R": 0.6912
+        },
+        "rust_and_leaf_miner": {
+          "tp": 133,
+          "fp": 38,
+          "fn": 54,
+          "n_imgs": 87,
+          "n_inst": 187,
+          "P": 0.7778,
+          "R": 0.7112
+        }
+      }
+    }
+  },
+  "section2_resolution": {
+    "gap_explained_by": "NMS IoU threshold: September used iou=0.7, previous session used iou=0.6",
+    "model_sha256_match": true,
+    "test_list_stems_match": true,
+    "test_list_path_format_differs": true,
+    "iou07_map50": 0.929377,
+    "iou07_map50_95": 0.734368,
+    "iou06_map50": 0.929781,
+    "iou06_map50_95": 0.731766,
+    "sept_reference_map50": 0.929,
+    "sept_reference_map50_95": 0.734,
+    "official_setting": "iou=0.7 (documented in CLEAN_TEST_RESULTS.md and results/grouped_v1/RESULTS_grouped_v1.md)",
+    "val_check_map50": 0.924985,
+    "val_check_map50_95": 0.732988,
+    "val_training_log_map50": 0.924,
+    "val_training_log_map50_95": 0.731
+  },
+  "section3_resolution": {
+    "mineiro99_real_or_artifact": "REAL",
+    "cross_group_edges_total": 39,
+    "cross_group_edges_pass": 35,
+    "cross_group_edges_fail": 4,
+    "component_size_before": 339,
+    "component_size_after": 322,
+    "mineiro99_size_after": 272,
+    "path_a_feasible": false,
+    "path_b_confirmed": true,
+    "reason": "Even after removing 4 false pHash edges, SANAS component (322 images) >10% and minador test instances all in MINEIRO_99 (272, majority=train)"
+  }
+}
