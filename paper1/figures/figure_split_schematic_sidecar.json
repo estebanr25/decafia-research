@@ -1,0 +1,23 @@
+{
+  "source_files": [
+    "C:/Users/luise/temp/decafia-research/split_v2/assignments_v2.csv",
+    "C:/Users/luise/temp/decafia-research/split_v2/copy_pairs.csv",
+    "C:/Users/luise/temp/decafia-research/paper1/results/metrics_final.json"
+  ],
+  "numbers": {
+    "total_images": 2315,
+    "own_field": 1705,
+    "silva_et_al": 610,
+    "train": 1577,
+    "val": 382,
+    "test": 356,
+    "tier_a_cross_pairs": 107,
+    "tier_b_cross_pairs": 13,
+    "total_cross_pairs": 120,
+    "unique_test_affected": 49,
+    "test_with_train_copy": 40,
+    "test_with_val_only_copy": 9,
+    "n_excluded": 49,
+    "filtered_test": 307
+  }
+}
